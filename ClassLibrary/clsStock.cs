@@ -1,6 +1,8 @@
 ﻿namespace ClassLibrary
 {
-    public class clsStock
+    public class ClsStock
     {
+        public string GameTitle { get; set; }
+        public int GameId { get; set; }
     }
 }
