@@ -28,9 +28,9 @@ namespace Testing4
             //assign the data to the property 
             Astock.GameId = TestData;
             //test to see that the two values are the same 
-            Assert.AreEqual(Astock.GameId,TestData);
+            Assert.AreEqual(Astock.GameId, TestData);
         }
-       
+
 
         [TestMethod]
         public void GameTitlePropertyOK()
@@ -66,12 +66,12 @@ namespace Testing4
             //create an instance of the class we want to create
             ClsStock AStock = new ClsStock();
 
-           //create some test data to assisgn to the property
+            //create some test data to assisgn to the property
             decimal TestData = 59.99m;
             //create the data to the property
             AStock.GamePrice = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(Astock.GamePrice, TestData);
+            Assert.AreEqual(AStock.GamePrice, TestData);
 
         }
 
@@ -81,11 +81,11 @@ namespace Testing4
             //create an instance of the class we want to create
             ClsStock AStock = new ClsStock();
             //create some test data to assisgn to the property
-            int TestData 1 = 100;
+            int TestData = 100;
             //create the data to the property
             AStock.StockQty = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(Astock.StockQty, TestData);
+            Assert.AreEqual(AStock.StockQty, TestData);
 
         }
 
@@ -99,7 +99,7 @@ namespace Testing4
             //create the data to the property
             AStock.GameRating = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(Astock.GameRating, TestData);
+            Assert.AreEqual(AStock.GameRating, TestData);
 
         }
 
@@ -113,7 +113,7 @@ namespace Testing4
             //create the data to the property
             AStock.IsDigital = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(Astock.IsDigital, TestData);
+            Assert.AreEqual(AStock.IsDigital, TestData);
 
         }
     }
