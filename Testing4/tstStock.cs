@@ -30,20 +30,7 @@ namespace Testing4
             //test to see that the two values are the same 
             Assert.AreEqual(Astock.GameId,TestData);
         }
-        /*
-        [TestMethod]
-         public void GameTitlePropertyOK()
-        {
-            //create an instance of the class we want to create 
-            clsStock Astock = new clsStock();
-            //create some test data to assign to the property 
-            string TestData = ''Elden Ring'';
-            //assign the data to the property 
-            Astock.GameTitle = TestData;
-            //test to see that the two values are the same 
-            Assert.AreEqual(Astock.GameTitle, TestData);
-        }
-        */
+       
 
         [TestMethod]
         public void GameTitlePropertyOK()
