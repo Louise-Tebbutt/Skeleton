@@ -52,8 +52,20 @@ namespace Testing4
             ClsStock Astock = new ClsStock();
             //create some test data to assign to the property 
             Astock.GameTitle = "Elden Ring";
-            //
+            //create the data to the property 
+            Astock.GameTitle = TestData;
+            //test to see that the twi values are the same
+            Assert.AreEqual(Astock.GameTitle, TestData);
 
+        }
+
+        [TestMethod]
+        public void GameReleaseDatePropertyOK()
+        {
+            //create an instance of the class we want to create 
+            ClsStock Astock = new ClsStock();
+            //create some test data to assisgn to the property
+            Astock.GameReleaseDate =
         }
 
 
