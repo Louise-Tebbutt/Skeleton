@@ -99,5 +99,37 @@ namespace Testing3
             // Test to see the two values are the same
             Assert.AreEqual(AnStaff.StaffEmail,TestData);
         }
+
+        [TestMethod]
+        public void StaffPhoneNumber()
+        {
+            // reate an instance of the class we  want to create
+            clsStaff AnStaff = new clsStaff();
+
+            // Create some test data to assign the property
+            String TestData = "Test Phone Number";
+
+            // Assign the data to the property
+            AnStaff.StaffPhoneNumber = TestData;
+
+            // Test to see the two values are the same
+            Assert.AreEqual(AnStaff.StaffPhoneNumber, TestData);
+        }
+
+        [TestMethod]
+        public void StaffSalary()
+        {
+            // reate an instance of the class we  want to create
+            clsStaff AnStaff = new clsStaff();
+
+            // Create some test data to assign the property
+            float TestData = 1;
+
+            // Assign the data to the property
+            AnStaff.StaffSalary = TestData;
+
+            // Test to see the two values are the same
+            Assert.AreEqual(AnStaff.StaffSalary, TestData);
+        }
     }
 }

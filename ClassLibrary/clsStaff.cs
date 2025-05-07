@@ -9,5 +9,7 @@ namespace ClassLibrary
         public DateTime JoinDate { get; set; }
         public bool MorePermissions { get; set; }
         public string StaffEmail { get; set; }
+        public string StaffPhoneNumber { get; set; }
+        public float StaffSalary { get; set; }
     }
 }
