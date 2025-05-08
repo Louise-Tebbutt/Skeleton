@@ -13,7 +13,7 @@
             <asp:TextBox ID="txtGameId" runat="server" style="z-index: 1; left: 165px; top: 13px; position: absolute"></asp:TextBox>
         </div>
         <asp:Label ID="IblGameTitle" runat="server" style="z-index: 1; left: 9px; top: 57px; position: absolute; height: 19px" Text="Game Title " width="113px"></asp:Label>
-        <asp:TextBox ID="TextBox1" runat="server" OnTextChanged="TextBox1_TextChanged" style="z-index: 1; top: 55px; position: absolute; left: 165px"></asp:TextBox>
+        <asp:TextBox ID="TextBox1" runat="server"  style="z-index: 1; top: 55px; position: absolute; left: 165px"></asp:TextBox>
         <asp:Label ID="IblGameReleaseDate" runat="server" style="z-index: 1; left: 9px; top: 95px; position: absolute; height: 25px; bottom: 548px" Text="Release Date" width="113px"></asp:Label>
         <asp:TextBox ID="txtGameReleaseDate" runat="server" style="z-index: 1; left: 165px; top: 94px; position: absolute"></asp:TextBox>
         <asp:TextBox ID="txtGamePrice" runat="server" style="z-index: 1; left: 165px; top: 135px; position: absolute"></asp:TextBox>
