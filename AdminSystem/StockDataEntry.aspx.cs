@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -31,7 +31,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         AStock.StockQty = Int32.Parse(txtStockQty.Text);
         AStock.GameRating = Int32.Parse(txtGameRating.Text);
         AStock.IsDigital = chkIsDigitial.Checked;
-        Session["AStock"] = AStock;
+        Session["AStock"] = AStock; 
         //navigate to the view page 
         Response.Redirect("StockViewer.aspx");
     }
