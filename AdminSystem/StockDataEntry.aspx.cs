@@ -27,8 +27,6 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
         //create a new instance of ClsStock
         ClsStock AStock = new ClsStock();
-        //capture the 
-        AStock.
         //navigate to the view page 
         Response.Redirect("StockViewer.aspx");
     }
