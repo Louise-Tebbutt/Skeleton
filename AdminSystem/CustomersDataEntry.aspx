@@ -6,7 +6,7 @@
 <head runat="server">
     <title></title>
 </head>
-<body style="height: 399px">
+<body style="height: 229px">
     <form id="form1" runat="server">
         <div>
         </div>
@@ -22,7 +22,7 @@
         <asp:TextBox ID="txtAddress" runat="server" style="z-index: 1; left: 148px; top: 132px; position: absolute"></asp:TextBox>
         <asp:Label ID="lblPhoneNumber" runat="server" style="z-index: 1; left: 18px; top: 152px; position: absolute" Text="Phone Number"></asp:Label>
         <asp:TextBox ID="txtPhoneNumber" runat="server" style="z-index: 1; left: 148px; top: 152px; position: absolute"></asp:TextBox>
-        </p>
+        <asp:CheckBox ID="cbActive" runat="server" Text="Active" Style="position: absolute; top: 178px; left: 148px;" />
     </form>
 </body>
 </html>
