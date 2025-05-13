@@ -11,6 +11,9 @@ namespace Testing2
     [TestClass]
     public class TstCustomer
     {
+        public clsCustomer AnCustomer { get; private set; }
+        public clsCustomer clsCustomer { get; private set; }
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -102,6 +105,62 @@ namespace Testing2
             AnCustomer.Active = TestData;
             //test to see that the two values are the same
             Assert.AreEqual(AnCustomer.Active, TestData);
+        }
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            //create an instance of what we want to create
+            clsCustomer = AnCustomer = new clsCustomer();
+            //create a Boolean varibale to store the restult of the validiation
+            Boolean Found = false;
+            //create some test data to use with the method
+            int CustomerID = 5;
+            //invoke method
+            Found = AnCustomer.Find(CustomerID);
+            //test to see if result is true
+            Assert.IsTrue(Found);
+        }
+        [TestMethod]
+        public void TestCustomerNoFound()
+        {
+            //create an instance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //create a boolean variable to store the results of the search
+            Boolean Found = false;
+            //create a boolean variable to record if the data is okay
+            Boolean OK = true;
+            //create some test data to use with the method
+            int CustomerID = 7;
+            //invoke the method
+            Found = AnCustomer.Find(CustomerID);
+            //check address ID
+            if (AnCustomer.CustomerNo != 7)
+            {
+               OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestDateOfBirth()
+        {
+            //create an instance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //create a boolean variable to store the results of the search
+            Boolean Found = false;
+            //create a boolean variable to record if the data is okay
+            Boolean OK = true;
+            //create some test data to use with the method
+            int CustomerID = 7;
+            //invoke the method
+            Found = AnCustomer.Find(CustomerID);
+            //check the DateOfBirth property
+            if(AnCustomer.DateOfBirth != Convert.ToDateTime("23/08/2005"))
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
         }
     }
 }
