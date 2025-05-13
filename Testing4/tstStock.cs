@@ -116,5 +116,86 @@ namespace Testing4
             Assert.AreEqual(AStock.IsDigital, TestData);
 
         }
+
+        [TestMethod] 
+        public void FindMethodOK()
+        {
+            //create an instance of the class we want to create 
+            ClsStock AStock = new ClsStock();
+            //create a Boolean Variable to store th results of the validation 
+            Boolean Found = false;
+            //create some test data to use with the method 
+            int GameId = 21;
+            //invoke the method
+            Found = AStock.Find(GameId);
+            //test to see if the result is true 
+            Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+        public void TestGameIdFound()
+        {
+            //create an instance of the class we want to create 
+            ClsStock AStock = new ClsStock();
+            //create a Boolean Variable to store th results of the validation 
+            Boolean Found = false;
+            //create a Boolean variable to record if the data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method 
+            int GameId = 21;
+            //invoke the method
+            Found = AStock.Find(GameId);
+            //check the game id 
+            if (AStock.GameId != 21)
+            {
+                OK = false;
+            }
+            //test to see if the result is true 
+            Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+        public void TestGameTitleFound()
+        {
+            //create an instance of the class we want to create 
+            ClsStock AStock = new ClsStock();
+            //create a Boolean Variable to store th results of the validation 
+            Boolean Found = false;
+            //create a Boolean variable to record if the data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method 
+            string GameTitle = "Elden Ring";
+            //invoke the method
+            Found = AStock.Find(GameId);
+            //check the game id 
+            if (AStock.GameTitle != "Elden Ring")
+            {
+                OK = false;
+            }
+            //test to see if the result is true 
+            Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+        public void TestGameReleaseDateFound()
+        {
+            //create an instance of the class we want to create 
+            ClsStock AStock = new ClsStock();
+            //create a Boolean Variable to store th results of the validation 
+            Boolean Found = false;
+            //create a Boolean variable to record if the data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method 
+            int GameId = 21;
+            //invoke the method
+            Found = AStock.Find(GameReleaseDate);
+            //check the game id 
+            if (AStock.GameReleaseDate != Convert.ToDateTime("09/05/2025"))
+            {
+                OK = false;
+            }
+            //test to see if the result is true 
+            Assert.IsTrue(Found);
+        }
     }
 }
