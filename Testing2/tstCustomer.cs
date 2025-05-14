@@ -162,5 +162,47 @@ namespace Testing2
             //test to see that the result is correct
             Assert.IsTrue(OK);
         }
+        [TestMethod]
+        public void TestFullName()
+        {
+            //create an instance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //create a boolean variable to store the results of the search
+            Boolean Found = false;
+            //create a boolean variable to record if the data is okay
+            Boolean OK = true;
+            //create some test data to use with the method
+            int CustomerID = 7;
+            //invoke the method
+            Found = AnCustomer.Find(CustomerID);
+            //check the data of fullname property
+            if(AnCustomer.FullName != "Anakin Skywalker")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestAddress()
+        {
+            //create an instance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //create a boolean variable to store the results of the search
+            Boolean Found = false;
+            //create a boolean variable to record if the data is okay
+            Boolean OK = true;
+            //create some test data to use with the method
+            int CustomerID = 7;
+            //invoke the method
+            Found = AnCustomer.Find(CustomerID);
+            //check the data of Address property
+            if(AnCustomer.Address != "212 Jedi Street")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
     }
 }
