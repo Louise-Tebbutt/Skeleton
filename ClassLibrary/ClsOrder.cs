@@ -135,23 +135,44 @@ namespace ClassLibrary
         }
         public bool Find(int orderId)
         {
-            //set the private data members to the test data value
-            mOrderId = 21;
-            mDateAdded = Convert.ToDateTime("20/11/2024");
-            mCustomerId = 123;
-            mOrderDate = Convert.ToDateTime("20/11/2024");
-            mTotalAmount = 99.99m;
-            mShippingAddress = "Leicester";
-            mPaymentStatus = true;
-            mStaffId = 789;
-            mActive = true;
-            //always return true
-            return true;
+            //Create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //add the parameter for the OrderId to search for
+            DB.AddParameter("@OrderId", OrderId);
+            //Excecute the stored procedure
+            DB.Execute("sproc_tblOrder_FilterByOrderId");
+            //if one record id found (should be either one or zero)
+            if (DB.Count == 1)
+            {
+                //copy the data from the database to the private data members
+                mOrderId = Convert.ToInt32(DB.DataTable.Rows[0]["OrderId"]);
+                mDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
+                mCustomerId = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerId"]);
+                mOrderDate = Convert.ToDateTime(DB.DataTable.Rows[0]["OrderDate"]);
+                mTotalAmount = Convert.ToDecimal(DB.DataTable.Rows[0]["TotalAmount"]);
+                mShippingAddress = Convert.ToString(DB.DataTable.Rows[0]["ShippingAddress"]);
+                mPaymentStatus = Convert.ToBoolean(DB.DataTable.Rows[0]["PaymentStatus"]);
+                mStaffId = Convert.ToInt32(DB.DataTable.Rows[0]["StaffId"]);
+                mActive = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
+                return true;
+            }
+            // if no record was found 
+            else
+            {
+                return false;
+            }
         
        
         }
-       
-         
+        // function for the public validation method
+        public string Valid(string OrderId,
+                            string CustomerId,
+                            string Orderdate,
+                            string Totalamount,
+                            string Paymentstatus,
+                            string Shippingaddress,
+                            string StaffId);
+        
         
 
        
