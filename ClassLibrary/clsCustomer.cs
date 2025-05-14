@@ -119,18 +119,35 @@ namespace ClassLibrary
                 mActive = value;
             }
         }
-        public bool Find(int customerID)
+        /*** FIND METHOD ***/
+        public bool Find(int CustomerNo)
         {
-            //set the private data members to test the data value
-            mCustomerNo = 7;
-            mDateOfBrith = Convert.ToDateTime("23/08/2005");
-            mFullName = "Anakin Skywalker";
-            mAddress = "212 Jedi Street";
-            mEmail = "AnakinSkwyalker@outlook.com";
-            mPhoneNumber = "07836208634";
-            mActive = true;
-            //always return true
-            return true;
+            //create an instance of the data connection
+            clsCustomer DB = new clsCustomer();
+            //add the parameter for the customer number to seach for
+            DB.AddParameter("@CustomerNo",  CustomerNo);
+            //execute the stored procedure
+            DB.Execute("sproc_tblCustomer_FilterByCustomerNo");
+            //if one record is found (there should be either one or zero)
+            if(DB.Count == 1)
+            {
+                //copy the data from the database to the private data mebers
+                mCustomerNo = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerNo"]);
+                mEmail = Convert.ToString(DB.DataTable.Rows[0]["Email"]);
+                mDateOfBrith = Convert.ToDateTime(DB.DataTable.Rows[0]["DateOfBirth"]);
+                mFullName = Convert.ToString(DB.DataTable.Rows[0]["FullName"]);
+                mAddress = Convert.ToString(DB.DataTable.Rows[0]["Address"]);
+                mPhoneNumber = Convert.ToString(DB.DataTable.Rows[0]["PhoneNumber"]);
+                mActive = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
+                //return that everything worked OK
+                return true;
+            }
+            //if no record was found
+            else
+            {
+                //return flase indicating there is a problem
+                return false;
+            }
         }
     }
 }
