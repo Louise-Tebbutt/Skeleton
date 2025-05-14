@@ -38,7 +38,7 @@ namespace Testing4
             //create an instance of the class we want to create 
             ClsStock Astock = new ClsStock();
             //create some test data to assign to the property 
-            string TestData = "Elden Ring";
+            string TestData = "Cyberpunk 2077";
             //create the data to the property 
             Astock.GameTitle = TestData;
             //test to see that the two values are the same
@@ -125,7 +125,7 @@ namespace Testing4
             //create a Boolean Variable to store th results of the validation 
             Boolean Found = false;
             //create some test data to use with the method 
-            int GameId = 21;
+            int GameId = 8;
             //invoke the method
             Found = AStock.Find(GameId);
             //test to see if the result is true 
@@ -142,11 +142,11 @@ namespace Testing4
             //create a Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method 
-            int GameId = 5;
+            int GameId = 8;
             //invoke the method
             Found = AStock.Find(GameId);
             //check the game id 
-            if (AStock.GameId != 21)
+            if (AStock.GameId != 8)
             {
                 OK = false;
             }
@@ -164,12 +164,12 @@ namespace Testing4
             //create a Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method 
-            string GameTitle = "Elden Ring";
-            int GameId = 5;
+            string GameTitle = "Cyberpunk 2077";
+            int GameId = 8;
             //invoke the method
             Found = AStock.Find(GameId);
             //check the game id 
-            if (AStock.GameTitle != "Elden Ring")
+            if (AStock.GameTitle != "Cyberpunk 2077")
             {
                 OK = false;
             }
@@ -187,11 +187,11 @@ namespace Testing4
             //create a Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method 
-            int GameId = 5;
+            int GameId = 8;
             //invoke the method
             Found = AStock.Find(GameId);
             //check the game id 
-            if (AStock.GameReleaseDate != Convert.ToDateTime("22/02/2022"))
+            if (AStock.GameReleaseDate != Convert.ToDateTime("10/12/2022"))
             {
                 OK = false;
             }
@@ -209,11 +209,11 @@ namespace Testing4
             //create a Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method 
-            int GameId = 5;
+            int GameId = 8;
             //invoke the method
             Found = AStock.Find(GameId);
             //check the game id 
-            if (AStock.GamePrice != 59.99m)
+            if (AStock.GamePrice != 49.99m)
             {
                 OK = false;
             }
@@ -231,12 +231,11 @@ namespace Testing4
             //create a Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method 
-            int StockQty = 9;
-            int GameId = 5;
+            int GameId = 8;
             //invoke the method
             Found = AStock.Find(GameId);
             //check the game id 
-            if (AStock.StockQty != 22)
+            if (AStock.StockQty != 50)
             {
                 OK = false;
             }
@@ -254,11 +253,11 @@ namespace Testing4
             //create a Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method 
-            int GameId = 5;
+            int GameId = 8;
             //invoke the method
             Found = AStock.Find(GameId);
             //check the game id 
-            if (AStock.GameRating != 9)
+            if (AStock.GameRating != 8)
             {
                 OK = false;
             }
@@ -276,11 +275,11 @@ namespace Testing4
             //create a Boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method 
-            int GameId = 5;
+            int GameId = 8;
             //invoke the method
             Found = AStock.Find(GameId);
             //check the game id 
-            if (AStock.IsDigital != true)
+            if (AStock.IsDigital != false)
             {
                 OK = false;
             }
