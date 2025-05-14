@@ -19,6 +19,8 @@ public partial class _1_DataEntry : System.Web.UI.Page
         clsCustomer AnCustomer = new clsCustomer();
         //Capture the cusomterNo
         AnCustomer.CustomerNo = Convert.ToInt32(txtCustomer.Text);
+        //Capture the Email
+        AnCustomer.Email = txtEmail.Text;
         //capture the dateOfBirth
         AnCustomer.DateOfBirth = Convert.ToDateTime(txtDateOfBirth.Text);
         //capture the fullname
