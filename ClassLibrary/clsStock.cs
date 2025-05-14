@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -164,6 +165,23 @@ namespace ClassLibrary
                 // Return false if no record was found
                 return false;
             }
+        }
+       /**
+        //function for the public validation method 
+
+        public string Valid (string gameTitle,                   
+                             string gamePrice,
+                             string StockQty,
+                             string gameRating,
+                             DateTime gameReleaseDate,
+            )
+
+        {
+            // create a string variable to store any error messages
+            String Error = "";
+
+            // Return any error messages
+            return Error;
         }
         /*
         public bool Find(String gameTitle)
