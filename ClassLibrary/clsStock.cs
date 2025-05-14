@@ -132,12 +132,38 @@ namespace ClassLibrary
 
             }
         }
+       // Updated Find method with database connection
         public bool Find(int gameId)
         {
-            //set the private data members to the test data value 
-            mGameId = 5;
-            //always return true
-            return true;
+            // Create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+
+            // Add the parameter for the stored procedure
+            DB.AddParameter("@GameId", gameId);
+
+            // Execute the stored procedure
+            DB.Execute("sproc_tblStock_FilterByStockId");
+
+            // Check if one record was found
+            if (DB.Count == 1)
+            {
+                // Copy the data from the database to the private data members
+                mGameId = Convert.ToInt32(DB.DataTable.Rows[0]["GameId"]);
+                mGameTitle = Convert.ToString(DB.DataTable.Rows[0]["GameTitle"]);
+                mGameReleaseDate = Convert.ToDateTime(DB.DataTable.Rows[0]["GameReleaseDate"]);
+                mGamePrice = Convert.ToDecimal(DB.DataTable.Rows[0]["GamePrice"]);
+                mStockQty = Convert.ToInt32(DB.DataTable.Rows[0]["StockQty"]);
+                mGameRating = Convert.ToInt32(DB.DataTable.Rows[0]["GameRating"]);
+                mIsDigital = Convert.ToBoolean(DB.DataTable.Rows[0]["IsDigital"]);
+                
+                // Return true to indicate the record was found
+                return true;
+            }
+            else
+            {
+                // Return false if no record was found
+                return false;
+            }
         }
         /*
         public bool Find(String gameTitle)
