@@ -31,7 +31,9 @@ public partial class _1_DataEntry : System.Web.UI.Page
         AStock.StockQty = Int32.Parse(txtStockQty.Text);
         AStock.GameRating = Int32.Parse(txtGameRating.Text);
         AStock.IsDigital = chkIsDigital.Checked;
-        
+
+        Session["AStock"] = AStock;
+
         //navigate to the view page
         Response.Redirect("StockViewer.aspx");
     }
@@ -65,6 +67,15 @@ public partial class _1_DataEntry : System.Web.UI.Page
             txtStockQty.Text = AStock.StockQty.ToString();
             txtGameRating.Text = AStock.GameRating.ToString();
             chkIsDigital.Checked = AStock.IsDigital;
+        }
+        else
+        {
+            txtGameTitle.Text = " ";
+            txtGameReleaseDate.Text = " ";
+            txtGamePrice.Text = " ";
+            txtStockQty.Text = " ";
+            txtGameRating.Text = " ";
+   
         }
     }
 }

@@ -166,63 +166,22 @@ namespace ClassLibrary
                 return false;
             }
         }
-       /**
-        //function for the public validation method 
+        
+          //function for the public validation method 
 
-        public string Valid (string gameTitle,                   
-                             string gamePrice,
-                             string StockQty,
-                             string gameRating,
-                             DateTime gameReleaseDate,
-            )
+         public string Valid (string gameTitle,                   
+                              string gamePrice,
+                              string StockQty,
+                              string gameRating,
+                              DateTime gameReleaseDate)
 
-        {
-            // create a string variable to store any error messages
-            String Error = "";
+         {
+             // create a string variable to store any error messages
+             String Error = "";
 
-            // Return any error messages
-            return Error;
-        }
-        /*
-        public bool Find(String gameTitle)
-        {
-            //set the private data members to the test data value 
-            mGameTitle = "Elden Ring";
-           //always return true
-           return true;
-        }
-
-        public bool Find(DateTime gameReleaseDate)
-        {
-           //set the private data members to test data value 
-           mGameReleaseDate = Convert.ToDateTime("22/02/2022");
-            //always return true 
-            return true;
-        }
-
-        public bool Find(decimal gamePrice)
-        {
-            //set the private data members to test data value 
-            mGamePrice = 55.99m;
-            //always return true 
-            return true;
-        }
-
-        public bool Find(int stockQty)
-        {
-            //set the private data members to test data value 
-            mStockQty = 22;
-            //always return true 
-            return true;
-        }
-
-        public bool Find(int gameRating)
-        {
-            //set the private data members to test data value
-            mGamingRating = 9;
-            //always return true
-            return true;
-        }
-        */
+             // Return any error messages
+             return Error;
+         }
+        
     }
 }

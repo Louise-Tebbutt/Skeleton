@@ -283,10 +283,13 @@ namespace Testing4
             {
                 OK = false;
             }
+
             //test to see if the result is true 
             Assert.IsTrue(Found);
-        } 
-        /**
+        }
+
+
+        
         [TestMethod]
         public void ValidMethodOK()
         {
@@ -298,7 +301,7 @@ namespace Testing4
             Error = AStock.Valid(GameTitle, GameReleaseDate, GamePrice, StockQty, GameRating);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
-        }**/
-
+        }
+        
     }
 }
