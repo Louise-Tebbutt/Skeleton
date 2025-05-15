@@ -267,5 +267,31 @@ namespace Testing2
             //test to see if the result is correct
             Assert.IsTrue(OK);
         }
+        [TestMethod]
+        public void TestFind()
+        {
+            //create an instance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //create a boolean variable to store the results of the search
+            Boolean Found = false;
+            //create a boolean variable to record if the data is okay
+            Boolean OK = true;
+            //create some test data to use with the method
+            int CustomerID = 7;
+            //invoke the method
+            Found = AnCustomer.Find(CustomerID);
+            //check the data in all the properties
+            if (AnCustomer.Email != "AnakinSkwyalker@outlook.com"
+                && AnCustomer.DateOfBirth != Convert.ToDateTime("23/08/2005")
+                && AnCustomer.FullName != "AnakinSkywalker"
+                && AnCustomer.Address != "212 Jedi Street"
+                && AnCustomer.PhoneNumber != "07836208634"
+                && AnCustomer.Active != true)
+            {
+                OK = false;
+            }
+            //test to see if the result is correct
+            Assert.IsTrue(OK);
+        }
     }
 }
