@@ -33,4 +33,30 @@ public partial class _1_DataEntry : System.Web.UI.Page
         AnCustomer.Active = cbActive.Checked;
 
     }
+
+    protected void btnFind_Click(object sender, EventArgs e)
+    {
+        //create an instance of the customer class
+        clsCustomer AnCustomer = new clsCustomer();
+        //create a variable to store the primary key
+        Int32 CustomerNo;
+        //create a variable to store the result of the find operation
+        Boolean Found = false;
+        //get the primary key entered by the user
+        CustomerNo = Convert.ToInt32(txtCustomer.Text);
+        //find the record
+        Found = AnCustomer.Find(CustomerNo);
+        //if found
+        if (Found == true) 
+        {
+            //display the values of the properties in the form
+            txtEmail.Text = AnCustomer.Email;
+            txtDateOfBirth.Text = AnCustomer.DateOfBirth.ToString();
+            txtFullName.Text = AnCustomer.FullName;
+            txtAddress.Text = AnCustomer.Address;
+            txtPhoneNumber.Text = AnCustomer.PhoneNumber;
+            cbActive.Checked = AnCustomer.Active;
+
+        }
+    }
 }

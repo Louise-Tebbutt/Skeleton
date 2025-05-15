@@ -12,7 +12,7 @@ namespace Testing4
         public void InstanceOK()
         {
             //create an instance of the class we want to create
-           ClsStock AStock = new ClsStock();
+            ClsStock AStock = new ClsStock();
 
             // test to see that it exists
             Assert.IsNotNull(AStock);
@@ -117,7 +117,7 @@ namespace Testing4
 
         }
 
-        [TestMethod] 
+        [TestMethod]
         public void FindMethodOK()
         {
             //create an instance of the class we want to create 
@@ -285,7 +285,7 @@ namespace Testing4
             }
             //test to see if the result is true 
             Assert.IsTrue(Found);
-        }
+        } 
         /**
         [TestMethod]
         public void ValidMethodOK()
@@ -298,7 +298,7 @@ namespace Testing4
             Error = AStock.Valid(GameTitle, GameReleaseDate, GamePrice, StockQty, GameRating);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
-        }
+        }**/
 
     }
 }
