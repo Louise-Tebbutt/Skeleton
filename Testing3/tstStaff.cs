@@ -142,7 +142,7 @@ namespace Testing3
             Boolean found = false;
 
             // Create some test data to use within the method
-            Int32 StaffId = 1;
+            Int32 StaffId = 2;
 
             // Invoke the method
             found = AnStaff.Find(StaffId);
@@ -164,13 +164,13 @@ namespace Testing3
             Boolean OK = true;
 
             // Create some test data to use within the method
-            Int32 StaffId = 1;
+            Int32 StaffId = 2;
 
             // Invoke the method
             found = AnStaff.Find(StaffId);
 
             // Check the StaffId
-            if (AnStaff.StaffId != 1)
+            if (AnStaff.StaffId != 2)
             {
                 OK = false;
             }
@@ -192,13 +192,13 @@ namespace Testing3
             Boolean OK = true;
 
             // Create some test data to use within the method
-            Int32 StaffId = 1;
+            Int32 StaffId = 2;
 
             // Invoke the method
             found = AnStaff.Find(StaffId);
 
             // Check the StaffId
-            if (AnStaff.StaffName != "John Doe")
+            if (AnStaff.StaffName != "Jane Doe")
             {
                 OK = false;
             }
@@ -220,13 +220,13 @@ namespace Testing3
             Boolean OK = true;
 
             // Create some test data to use within the method
-            Int32 StaffId = 1;
+            Int32 StaffId = 2;
 
             // Invoke the method
             found = AnStaff.Find(StaffId);
 
             // Check the StaffId
-            if (AnStaff.JoinDate != Convert.ToDateTime("01/01/2000"))
+            if (AnStaff.JoinDate != Convert.ToDateTime("05/05/2005"))
             {
                 OK = false;
             }
@@ -248,13 +248,13 @@ namespace Testing3
             Boolean OK = true;
 
             // Create some test data to use within the method
-            Int32 StaffId = 1;
+            Int32 StaffId = 2;
 
             // Invoke the method
             found = AnStaff.Find(StaffId);
 
             // Check the StaffId
-            if (AnStaff.MorePermissions != true)
+            if (AnStaff.MorePermissions != false)
             {
                 OK = false;
             }
@@ -276,13 +276,13 @@ namespace Testing3
             Boolean OK = true;
 
             // Create some test data to use within the method
-            Int32 StaffId = 1;
+            Int32 StaffId = 2;
 
             // Invoke the method
             found = AnStaff.Find(StaffId);
 
             // Check the StaffId
-            if (AnStaff.StaffEmail != "JohnDoe@email.com")
+            if (AnStaff.StaffEmail != "JaneDoe@example.com")
             {
                 OK = false;
             }
@@ -304,13 +304,13 @@ namespace Testing3
             Boolean OK = true;
 
             // Create some test data to use within the method
-            Int32 StaffId = 1;
+            Int32 StaffId = 2;
 
             // Invoke the method
             found = AnStaff.Find(StaffId);
 
             // Check the StaffId
-            if (AnStaff.StaffPhoneNumber != "05555111999")
+            if (AnStaff.StaffPhoneNumber != "09876543219")
             {
                 OK = false;
             }
@@ -332,13 +332,13 @@ namespace Testing3
             Boolean OK = true;
 
             // Create some test data to use within the method
-            Int32 StaffId = 1;
+            Int32 StaffId = 2;
 
             // Invoke the method
             found = AnStaff.Find(StaffId);
 
             // Check the StaffId
-            if (AnStaff.StaffSalary != 11.11F)
+            if (AnStaff.StaffSalary != 44.04F)
             {
                 OK = false;
             }
