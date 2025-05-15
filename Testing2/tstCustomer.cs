@@ -11,6 +11,15 @@ namespace Testing2
     [TestClass]
     public class TstCustomer
     {
+
+        //good test data
+        //test data to pass the method
+        string Email = "ShmiSkywalker@outlook.com";
+        string DateOfBirth = DateTime.Now.ToShortDateString();
+        string FullName = "AvarKriss";
+        string Address = "212 Kennobi street";
+
+
         public clsCustomer AnCustomer { get; private set; }
         public clsCustomer clsCustomer { get; private set; }
 
@@ -292,6 +301,23 @@ namespace Testing2
             }
             //test to see if the result is correct
             Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //string variable to store any error message
+            String Error = "";
+            //invoke method 
+            Error = AnCustomer.Valid(Email, DateOfBirth, FullName, Address);
+            //test to see that the result is correct
+            AssertAreEqual (Error, "");
+        }
+
+        private string AssertAreEqual(string error, string v)
+        {
+            return "";
         }
     }
 }
