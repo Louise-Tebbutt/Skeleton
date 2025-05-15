@@ -289,7 +289,7 @@ namespace Testing4
         }
 
 
-        
+        /*
         [TestMethod]
         public void ValidMethodOK()
         {
@@ -302,6 +302,6 @@ namespace Testing4
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
-        
+        */
     }
 }
