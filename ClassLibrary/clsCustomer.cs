@@ -123,7 +123,7 @@ namespace ClassLibrary
         public bool Find(int CustomerNo)
         {
             //create an instance of the data connection
-            clsCustomer DB = new clsCustomer();
+            clsDataConnection DB = new clsDataConnection();
             //add the parameter for the customer number to seach for
             DB.AddParameter("@CustomerNo",  CustomerNo);
             //execute the stored procedure
