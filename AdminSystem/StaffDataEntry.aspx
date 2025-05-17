@@ -11,9 +11,10 @@
         <div>
         </div>
         <p>
-            <asp:Label ID="lblStaffId" runat="server" style="z-index: 1; left: 22px; top: 54px; position: absolute; bottom: 587px" Text="Staff Id" width="124px"></asp:Label>
+            <asp:Label ID="lblStaffId" runat="server" style="z-index: 1; left: 22px; top: 54px; position: absolute; bottom: 836px" Text="Staff Id" width="124px"></asp:Label>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:TextBox ID="txtStaffId" runat="server" style="z-index: 1; left: 192px; top: 54px; position: absolute"></asp:TextBox>
+            <asp:Button ID="btnFind" runat="server" Height="23px" OnClick="btnFind_Click" style="margin-left: 196px; margin-bottom: 6px" Text="Find" Width="86px" />
         </p>
         <p>
             <asp:Label ID="lblStaffSalary" runat="server" style="z-index: 1; left: 22px; top: 296px; position: absolute" width="124px">Staff Salary</asp:Label>
