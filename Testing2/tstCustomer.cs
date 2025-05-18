@@ -14,10 +14,12 @@ namespace Testing2
 
         //good test data
         //test data to pass the method
+        int CustomerNo = 7;
         string Email = "ShmiSkywalker@outlook.com";
         string DateOfBirth = DateTime.Now.ToShortDateString();
         string FullName = "AvarKriss";
         string Address = "212 Kennobi street";
+        string PhoneNumber = "07836208634";
 
 
         public clsCustomer AnCustomer { get; private set; }
@@ -318,6 +320,36 @@ namespace Testing2
         private string AssertAreEqual(string error, string v)
         {
             return "";
+        }
+
+        [TestMethod]
+        public void EmailMinLessOne()
+        {
+            //create an instance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //string c=verabible to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string Email = ""; //this should trigger an error
+            //invoke the method
+            Error = AnCustomer.Valid(CustomerNo, Email, DateOfBirth, FullName, Address, PhoneNumber);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void EmailMin()
+        {
+            //create an instance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //string c=verabible to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string Email = "a"; //this should be okay
+            //invoke the method
+            Error = AnCustomer.Valid(CustomerNo, Email, DateOfBirth, FullName, Address, PhoneNumber);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
         }
     }
 }

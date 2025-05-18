@@ -28,7 +28,7 @@ namespace ClassLibrary
 
         public Int32 CustomerNo
         {
-            get 
+            get
             {
                 //this line of code sends data out of the property
                 return mCustomerNo;
@@ -68,7 +68,7 @@ namespace ClassLibrary
 
         public string FullName
         {
-            get 
+            get
             {
                 //this line of code sends data out of the property
                 return mFullName;
@@ -95,12 +95,12 @@ namespace ClassLibrary
         }
         public string PhoneNumber
         {
-            get 
+            get
             {
                 //this line of code sends data out of the property
                 return mPhoneNumber;
             }
-            set 
+            set
             {
                 //this line of code allows data into the property
                 mPhoneNumber = value;
@@ -125,11 +125,11 @@ namespace ClassLibrary
             //create an instance of the data connection
             clsDataConnection DB = new clsDataConnection();
             //add the parameter for the customer number to seach for
-            DB.AddParameter("@CustomerNo",  CustomerNo);
+            DB.AddParameter("@CustomerNo", CustomerNo);
             //execute the stored procedure
             DB.Execute("sproc_tblCustomer_FilterByCustomerNo");
             //if one record is found (there should be either one or zero)
-            if(DB.Count == 1)
+            if (DB.Count == 1)
             {
                 //copy the data from the database to the private data mebers
                 mCustomerNo = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerNo"]);
@@ -153,6 +153,22 @@ namespace ClassLibrary
         public string Valid(string email, string dateOfBirth, string fullName, string address)
         {
             return "";
+        }
+
+
+        public string Valid(object customerNo, string email, string dateOfBirth, string fullName, string address, string phoneNumber)
+        {
+            //create a string variable to store the error
+            String Error = "";
+            //if the CustomerNo is blank
+            if (Email.Length == 0)
+            {
+                Error = Error + "The customer number may not be blank : ";
+                //return any error messages
+                return Error;
+            }
+            //return any error messages
+            return Error;
         }
     }
 }
