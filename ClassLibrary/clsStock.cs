@@ -169,19 +169,57 @@ namespace ClassLibrary
         
           //function for the public validation method 
 
-         public string Valid (string gameTitle,                   
-                              string gamePrice,
-                              string StockQty,
-                              string gameRating,
-                              DateTime gameReleaseDate)
+        public string Valid(string gameTitle, string gameReleaseDate, string gamePrice, string stockQty, string gameRating, string isDigital)
+        {
+            {
+                // create a string variable to store any error messages
+                String Error = "";
+                //create a temporary variable to store the date values
+                DateTime DateTemp;
+                //if the GameId Is blank
+                if (gameTitle.Length == 0)
+                {
+                    //record the error 
+                    Error = Error + "The Game Title may not be blank :";
+                }
+           
+                
+                // if the game title is greater than 6 characters
+                if (gameTitle.Length > 6)
+                {
+                    //record the error 
+                    Error = Error + "The Game Title must be less than 6 characters :";
+                }
+              
+               
+                // if the Game Title is greater than 100 characters
+                if (gameTitle.Length > 100)
+                {
+                    // record the error 
+                    Error = Error + "The Game Title must be less than 100 characters : ";
+                }
+                
+                //copy the dateAdded value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(gameReleaseDate);
+                //check to see if the date is less than today's date
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    //record the error 
+                    Error = Error + "The date cannot be in the past:";
+                }
 
-         {
-             // create a string variable to store any error messages
-             String Error = "";
+                //check to see if the date is greater than today's date 
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //record the error 
+                    Error = Error + "The date cannot be in the future:";
+                }
+                
+                // return any error messages
+                return Error;
+            }
+        }
 
-             // Return any error messages
-             return Error;
-         }
-        
+       
     }
 }
