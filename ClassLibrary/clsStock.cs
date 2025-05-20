@@ -45,7 +45,7 @@ namespace ClassLibrary
                 //this line of code allows data into the property 
                 mGameId = value;
             }
-        }  
+        }
 
         //gametitle public property 
         public string GameTitle
@@ -77,7 +77,7 @@ namespace ClassLibrary
             }
         }
 
-        public decimal  GamePrice
+        public decimal GamePrice
         {
             get
             {
@@ -93,16 +93,16 @@ namespace ClassLibrary
 
         public int StockQty
         {
-            get 
-            {  
+            get
+            {
                 //this line of the code sends data out of the property 
                 return mStockQty;
             }
-            set 
-            { 
+            set
+            {
                 //this line of code allows data into the property
                 mStockQty = value;
-            
+
             }
         }
         public int GameRating
@@ -133,7 +133,7 @@ namespace ClassLibrary
 
             }
         }
-       // Updated Find method with database connection
+        // Updated Find method with database connection
         public bool Find(int gameId)
         {
             // Create an instance of the data connection
@@ -156,7 +156,7 @@ namespace ClassLibrary
                 mStockQty = Convert.ToInt32(DB.DataTable.Rows[0]["StockQty"]);
                 mGameRating = Convert.ToInt32(DB.DataTable.Rows[0]["GameRating"]);
                 mIsDigital = Convert.ToBoolean(DB.DataTable.Rows[0]["IsDigital"]);
-                
+
                 // Return true to indicate the record was found
                 return true;
             }
@@ -166,8 +166,8 @@ namespace ClassLibrary
                 return false;
             }
         }
-        
-          //function for the public validation method 
+
+        //function for the public validation method 
 
         public string Valid(string gameTitle, string gameReleaseDate, string gamePrice, string stockQty, string gameRating, string isDigital)
         {
@@ -182,23 +182,23 @@ namespace ClassLibrary
                     //record the error 
                     Error = Error + "The Game Title may not be blank :";
                 }
-           
-                
+
+
                 // if the game title is greater than 6 characters
                 if (gameTitle.Length > 6)
                 {
                     //record the error 
                     Error = Error + "The Game Title must be less than 6 characters :";
                 }
-              
-               
+
+
                 // if the Game Title is greater than 100 characters
                 if (gameTitle.Length > 100)
                 {
                     // record the error 
                     Error = Error + "The Game Title must be less than 100 characters : ";
                 }
-                
+
                 //copy the dateAdded value to the DateTemp variable
                 DateTemp = Convert.ToDateTime(gameReleaseDate);
                 //check to see if the date is less than today's date
@@ -214,12 +214,11 @@ namespace ClassLibrary
                     //record the error 
                     Error = Error + "The date cannot be in the future:";
                 }
-                
+
                 // return any error messages
                 return Error;
             }
         }
 
-       
     }
 }
