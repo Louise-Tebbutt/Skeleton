@@ -174,23 +174,20 @@ namespace ClassLibrary
             {
                 // create a string variable to store any error messages
                 String Error = "";
-                //create a temporary variable to store the date values
-                DateTime DateTemp;
-                //if the GameId Is blank
+
+                // if the Game Title is blank
                 if (gameTitle.Length == 0)
                 {
-                    //record the error 
+                    // record the error 
                     Error = Error + "The Game Title may not be blank :";
                 }
 
-
-                // if the game title is greater than 6 characters
+                // if the Game Title is less than 6 characters
                 if (gameTitle.Length > 6)
                 {
-                    //record the error 
+                    // record the error 
                     Error = Error + "The Game Title must be less than 6 characters :";
                 }
-
 
                 // if the Game Title is greater than 100 characters
                 if (gameTitle.Length > 100)
@@ -199,20 +196,75 @@ namespace ClassLibrary
                     Error = Error + "The Game Title must be less than 100 characters : ";
                 }
 
-                //copy the dateAdded value to the DateTemp variable
-                DateTemp = Convert.ToDateTime(gameReleaseDate);
-                //check to see if the date is less than today's date
-                if (DateTemp < DateTime.Now.Date)
+                // validate the Game Release Date using a try-catch block
+                try
                 {
-                    //record the error 
-                    Error = Error + "The date cannot be in the past:";
+                    // create a temporary variable to store the date value
+                    DateTime DateTemp = Convert.ToDateTime(gameReleaseDate);
+
+                    // check if the date is more than 100 years ago
+                    if (DateTemp < DateTime.Now.Date.AddYears(-100))
+                    {
+                        // record the error
+                        Error = Error + "The release date cannot be more than 100 years ago :";
+                    }
+
+                    // check if the date is in the future
+                    if (DateTemp > DateTime.Now.Date)
+                    {
+                        // record the error
+                        Error = Error + "The release date cannot be in the future :";
+                    }
+                }
+                catch
+                {
+                    // record the error
+                    Error = Error + "The date was not a valid date :";
                 }
 
-                //check to see if the date is greater than today's date 
-                if (DateTemp > DateTime.Now.Date)
+                // validate Game Price
+                try
                 {
-                    //record the error 
-                    Error = Error + "The date cannot be in the future:";
+                    // create a temporary variable to store the price
+                    decimal PriceTemp = Convert.ToDecimal(gamePrice);
+
+                    // check if the price is less than or equal to 0
+                    if (PriceTemp <= 0)
+                    {
+                        // record the error
+                        Error = Error + "The Game Price must be greater than 0 :";
+                    }
+                }
+                catch
+                {
+                    // record the error
+                    Error = Error + "The Game Price was not a valid number :";
+                }
+
+                // validate Stock Quantity
+                try
+                {
+                    // create a temporary variable to store the stock quantity
+                    int StockTemp = Convert.ToInt32(stockQty);
+
+                    // check if the quantity is negative
+                    if (StockTemp < 0)
+                    {
+                        // record the error
+                        Error = Error + "The Stock Quantity cannot be negative :";
+                    }
+
+                    // optionally add a maximum limit (e.g., 10,000)
+                    if (StockTemp > 10000)
+                    {
+                        // record the error
+                        Error = Error + "The Stock Quantity cannot be more than 10,000 :";
+                    }
+                }
+                catch
+                {
+                    // record the error
+                    Error = Error + "The Stock Quantity was not a valid number :";
                 }
 
                 // return any error messages
