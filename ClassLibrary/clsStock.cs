@@ -182,18 +182,9 @@ namespace ClassLibrary
                     Error = Error + "The Game Title may not be blank :";
                 }
 
-                // if the Game Title is less than 6 characters
-                if (gameTitle.Length > 6)
+                if (gameTitle.Length >= 100)
                 {
-                    // record the error 
-                    Error = Error + "The Game Title must be less than 6 characters :";
-                }
-
-                // if the Game Title is greater than 100 characters
-                if (gameTitle.Length > 100)
-                {
-                    // record the error 
-                    Error = Error + "The Game Title must be less than 100 characters : ";
+                    Error = Error + "The Game Title must be less than or equal to 100 characters :";
                 }
 
                 // validate the Game Release Date using a try-catch block
