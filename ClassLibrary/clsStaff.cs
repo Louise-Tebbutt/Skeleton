@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq.Expressions;
 
 namespace ClassLibrary
 {
@@ -113,9 +114,9 @@ namespace ClassLibrary
             }
         }
 
-        private float mStaffSalary;
+        private Decimal mStaffSalary;
 
-        public float StaffSalary
+        public Decimal StaffSalary
         {
             get
             {
@@ -150,7 +151,7 @@ namespace ClassLibrary
                 mMorePermissions = Convert.ToBoolean(DB.DataTable.Rows[0]["MorePermissions"]);
                 mStaffEmail = Convert.ToString(DB.DataTable.Rows[0]["StaffEmail"]);
                 mStaffPhoneNumber = Convert.ToString(DB.DataTable.Rows[0]["StaffPhoneNumber"]);
-                mStaffSalary = Convert.ToSingle(DB.DataTable.Rows[0]["StaffSalary"]);
+                mStaffSalary = Convert.ToDecimal(DB.DataTable.Rows[0]["StaffSalary"]);
                 // Return that everything worked ok
                 return true;    
             }
@@ -160,6 +161,31 @@ namespace ClassLibrary
                 // return false indicating there was a problem
                 return false;
             }
+        }
+
+        public string Valid(string staffId, string staffName, string joinDate, string staffEmail, string staffPhoneNumber, string staffSalary)
+        {
+            // Create a string variable to store the error
+            String Error = "";
+
+
+
+            try
+            {
+                decimal TempSalary = Convert.ToDecimal(StaffSalary);
+
+                if (TempSalary < 0)
+                {
+                    Error = Error + "The Salary must be higher than 0";
+                }
+            }
+
+            catch
+            {
+                Error = Error + "The salary is not a valid number";
+            }
+            return Error;
+            
         }
     }
 }

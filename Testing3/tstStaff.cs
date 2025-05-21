@@ -7,6 +7,14 @@ namespace Testing3
     [TestClass]
     public class tstStaff
     {
+        // Good test data
+        string StaffName = "Jane Doe";
+        string JoinDate = DateTime.Now.ToShortDateString();
+        string StaffEmail = "JaneDoe@example.com";
+        string StaffPhoneNumber = "09876543219";
+        string StaffSalary = "44.04";
+        string MorePermissions = "False";
+
         [TestMethod]
         public void InstanceOk()
         {
@@ -123,7 +131,7 @@ namespace Testing3
             clsStaff AnStaff = new clsStaff();
 
             // Create some test data to assign the property
-            float TestData = 1;
+            Decimal TestData = 1;
 
             // Assign the data to the property
             AnStaff.StaffSalary = TestData;
@@ -338,13 +346,87 @@ namespace Testing3
             found = AnStaff.Find(StaffId);
 
             // Check the StaffId
-            if (AnStaff.StaffSalary != 44.04F)
+            if (AnStaff.StaffSalary != 44.04m)
             {
                 OK = false;
             }
 
             // Test to see if the result is true
             Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void ValidMethodOk()
+        {
+            // Create an instance of the class we want to create
+            clsStaff AnStaff = new clsStaff();
+
+            // String vairable to store error messages
+            String Error = "";
+
+            // Invoke the method
+            Error = AnStaff.Valid(StaffName, JoinDate, StaffEmail, StaffPhoneNumber, StaffSalary, MorePermissions);
+
+            // Test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffSalaryMinLessOne()
+        {
+            // Create an instance of the class we want to create
+            clsStaff AnStaff = new clsStaff();
+
+            // String c=variable to store any error message
+            String Error = "";
+
+            // Create some test data to pass to the method
+            String StaffSalary = "0";
+
+            // Invoke the method
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+
+            // Test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+
+        }
+
+        [TestMethod]
+        public void StaffSalaryMin()
+        {
+            // Create an instance of the class we want to create
+            clsStaff AnStaff = new clsStaff();
+
+            // String variable to store an error messages
+            String Error = "";
+
+            // Create some test data to pass to the method
+            String StaffSalary = "0.01";
+
+            // Invoke the method
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+
+            // test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffSalaryMinPlusOne()
+        {
+            // Create an instance of the class we want to create
+            clsStaff AnStaff = new clsStaff();
+
+            // String variable to store any error message
+            String Error = "";
+
+            // Create some test data to pass to the method
+            string StaffSalary = "1.00";
+
+            // Invoke the method
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+
+            // Test to see the result is correct
+            Assert.AreEqual(Error, "");
         }
     }
 }
