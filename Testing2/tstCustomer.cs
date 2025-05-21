@@ -337,6 +337,19 @@ namespace Testing2
             Assert.AreNotEqual(Error, "");
         }
 
-
+        [TestMethod]
+        public void EmailMinLessOne()
+        {
+            //create an instance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //string to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string Email = ""; //this should trigger an error
+            //invoke method
+            Error = AnCustomer.Valid(CustomerNo, Email, DateOfBirth, FullName, Address, PhoneNumber);
+            //test to see if that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
     }
 }
