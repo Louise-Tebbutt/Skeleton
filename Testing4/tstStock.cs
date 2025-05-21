@@ -705,7 +705,7 @@ namespace Testing4
         }
 
         [TestMethod]
-        public void StockyQtyMid()
+        public void StockQtyMid()
         {
             //create an instance of the class we want to create
             ClsStock AStock = new ClsStock();
@@ -793,5 +793,7 @@ namespace Testing4
             //test to see that the result is correct
             Assert.AreEqual("", Error);
         }
+
+        /** Min, MinPlusOne, MaxLessOne, Max, Mid, MaxPlusOne, ExtremeMax, invalid **/
     }
 }
