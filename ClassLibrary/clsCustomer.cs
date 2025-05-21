@@ -155,15 +155,15 @@ namespace ClassLibrary
             return "";
         }
 
-        public string Valid(string customerNo, string email, string dateOfBirth, string fullName, string address, string phoneNumber)
+        public string Valid(string email, string dateOfBirth, string fullName, string address, string phoneNumber)
         {
             //create an string variable to store the error
             String Error = "";
             //if the CustomerNo is blank
-            if (customerNo == "")
+            if (email.Length == 0)
             {
                 //record the error
-                Error = Error + "the eamil number may not be blank";
+                Error = Error + "the email may not be left blank :";
             }
             //return any error messages
             return Error;
