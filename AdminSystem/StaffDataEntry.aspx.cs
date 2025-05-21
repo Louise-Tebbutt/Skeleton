@@ -34,7 +34,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         AnStaff.StaffPhoneNumber = txtStaffPhoneNumber.Text;
 
         // Capture the staff salary
-        AnStaff.StaffSalary = Convert.ToSingle(txtStaffSalary.Text);
+        AnStaff.StaffSalary = Convert.ToDecimal(txtStaffSalary.Text);
 
         // Capture the staff permissions
         AnStaff.MorePermissions = chkMorePermissions.Checked;
