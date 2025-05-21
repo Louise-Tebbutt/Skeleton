@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace ClassLibrary
 {
@@ -35,6 +36,33 @@ namespace ClassLibrary
         }
 
         public ClsStock ThisStock { get; set; }
+        
+        //constructor for the class 
+        public ClsStockCollection()
+        {
+            //create the items of test data 
+            ClsStock TestItem = new ClsStock();
+            //set its properties 
+            TestItem.IsDigital = true;
+            TestItem.GameId = 22;
+            TestItem.GameTitle = "Urvarshi";
+            TestItem.GameReleaseDate = DateTime.Now;
+            TestItem.GamePrice = 10000000000000000.00m;
+            TestItem.StockQty = 50;
+            TestItem.GameRating = 9;
+            //add the test item to the test list 
+            mStockList.Add(TestItem);
+            //re initialise the object for some new data
+            TestItem.IsDigital = true;
+            TestItem.GameId = 22;
+            TestItem.GameTitle = "Urvarshi";
+            TestItem.GameReleaseDate = DateTime.Now;
+            TestItem.GamePrice = 10000000000000000.00m;
+            TestItem.StockQty = 50;
+            TestItem.GameRating = 9;
+            //add the item to the test list 
+            mStockList.Add(TestItem);
+        }
 
     }
 }
