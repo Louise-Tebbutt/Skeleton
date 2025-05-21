@@ -381,7 +381,7 @@ namespace Testing3
             String Error = "";
 
             // Create some test data to pass to the method
-            String StaffSalary = "0";
+            string StaffSalary = "0";
 
             // Invoke the method
             Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
@@ -427,6 +427,26 @@ namespace Testing3
 
             // Test to see the result is correct
             Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StaffSalaryMaxPlusOne()
+        {
+            // Create an instance of the class we want to create
+            clsStaff AnStaff = new clsStaff();
+
+            // String variable to store any error message
+            String Error = "";
+
+            // Create some test data to pass the method
+            string StaffSalary = "999999999.99";
+
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+
+            // Test to see the result is correct
+            Assert.AreNotEqual(Error, "");
+
+
         }
     }
 }
