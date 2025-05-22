@@ -44,20 +44,7 @@ namespace Testing4
             //test to see that the two values are the same 
             Assert.AreEqual(AllStock.StockList, TestList);
         }
-
-        [TestMethod]
-        public void CountPropertyOk()
-        {
-            //create an instance of the class we want to create
-            ClsStockCollection AllStocks = new ClsStockCollection();
-            //create some test data to assign to the property
-            Int32 SomeCount = 2;
-            //assign the data to the property
-            AllStocks.Count = SomeCount;
-            //test to see that the two values are the same
-            Assert.AreEqual(AllStocks.Count, SomeCount);
-        }
-
+        
         [TestMethod]
         public void ThisStockPropertyOk()
         {
@@ -78,7 +65,7 @@ namespace Testing4
             //test to see that the two values are the same
             Assert.AreEqual(AllStock.ThisStock, TestStock);
         }
-
+        
         [TestMethod]
         public void ListAndCountOK()
         {
@@ -105,16 +92,6 @@ namespace Testing4
             //test to see that the two values are the same 
             Assert.AreEqual(AllStock.Count, TestList.Count);
         }
-
-        [TestMethod]
-        public void TwoRecordsPresent()
-        {
-            //create an instance of the class we want to create
-            ClsStockCollection AllStock = new ClsStockCollection();
-            //test to see that the values are the same
-            Assert.AreEqual(AllStock.Count, 2);
-        }
-
 
     }
 }

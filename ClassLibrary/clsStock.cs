@@ -171,97 +171,96 @@ namespace ClassLibrary
 
         public string Valid(string gameTitle, string gameReleaseDate, string gamePrice, string stockQty, string gameRating, string isDigital)
         {
+            // create a string variable to store any error messages
+            String Error = "";
+
+            //GameTitle
+            if (gameTitle.Length == 0)
             {
-                // create a string variable to store any error messages
-                String Error = "";
-
-                // if the Game Title is blank
-                if (gameTitle.Length == 0)
-                {
-                    // record the error 
-                    Error = Error + "The Game Title may not be blank :";
-                }
-
-                if (gameTitle.Length >= 100)
-                {
-                    Error = Error + "The Game Title must be less than or equal to 100 characters :";
-                }
-
-                // validate the Game Release Date using a try-catch block
-                try
-                {
-                    // create a temporary variable to store the date value
-                    DateTime DateTemp = Convert.ToDateTime(gameReleaseDate);
-
-                    // check if the date is more than 100 years ago
-                    if (DateTemp < DateTime.Now.Date.AddYears(-100))
-                    {
-                        // record the error
-                        Error = Error + "The release date cannot be more than 100 years ago :";
-                    }
-
-                    // check if the date is in the future
-                    if (DateTemp > DateTime.Now.Date)
-                    {
-                        // record the error
-                        Error = Error + "The release date cannot be in the future :";
-                    }
-                }
-                catch
-                {
-                    // record the error
-                    Error = Error + "The date was not a valid date :";
-                }
-
-                // validate Game Price
-                try
-                {
-                    // create a temporary variable to store the price
-                    decimal PriceTemp = Convert.ToDecimal(gamePrice);
-
-                    // check if the price is less than or equal to 0
-                    if (PriceTemp <= 0)
-                    {
-                        // record the error
-                        Error = Error + "The Game Price must be greater than 0 :";
-                    }
-                }
-                catch
-                {
-                    // record the error
-                    Error = Error + "The Game Price was not a valid number :";
-                }
-
-                // validate Stock Quantity
-                try
-                {
-                    // create a temporary variable to store the stock quantity
-                    int StockTemp = Convert.ToInt32(stockQty);
-
-                    // check if the quantity is negative
-                    if (StockTemp < 0)
-                    {
-                        // record the error
-                        Error = Error + "The Stock Quantity cannot be negative :";
-                    }
-
-                    // optionally add a maximum limit (e.g., 10,000)
-                    if (StockTemp > 10000)
-                    {
-                        // record the error
-                        Error = Error + "The Stock Quantity cannot be more than 10,000 :";
-                    }
-                }
-                catch
-                {
-                    // record the error
-                    Error = Error + "The Stock Quantity was not a valid number :";
-                }
-
-                // return any error messages
-                return Error;
+                // record the error 
+                Error = Error + "The Game Title may not be blank :";
             }
+
+            if (gameTitle.Length > 50)
+            {
+                Error = Error + "The Game Title must be less than or equal to 50 characters :";
+            }
+
+
+            //  GameReleaseDate 
+            try
+            {
+                DateTime DateTemp = Convert.ToDateTime(gameReleaseDate);
+
+                if (DateTemp < DateTime.Now.Date.AddYears(-100))
+                {
+                    Error = Error + "The release date cannot be more than 100 years ago :";
+                }
+
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    Error = Error + "The release date cannot be in the future :";
+                }
+            }
+            catch
+            {
+                Error = Error + "The date was not a valid date :";
+            }
+
+            //  GamePrice
+            try
+            {
+                decimal PriceTemp = Convert.ToDecimal(gamePrice);
+
+                if (PriceTemp <= 0)
+                {
+                    Error = Error + "The Game Price must be greater than 0 :";
+                }
+            }
+            catch
+            {
+                Error = Error + "The Game Price was not a valid number :";
+            }
+
+            //StockQty
+            try
+            {
+                int StockTemp = Convert.ToInt32(stockQty);
+
+                if (StockTemp < 0)
+                {
+                    Error = Error + "The Stock Quantity cannot be negative :";
+                }
+
+                if (StockTemp > 10000)
+                {
+                    Error = Error + "The Stock Quantity cannot be more than 10,000 :";
+                }
+            }
+            catch
+            {
+                Error = Error + "The Stock Quantity was not a valid number :";
+            }
+
+            //GameRating  
+            try
+            {
+                int RatingTemp = Convert.ToInt32(gameRating);
+
+                if (RatingTemp < 1 || RatingTemp > 10)
+                {
+                    Error = Error + "The Game Rating must be between 1 and 10 inclusive :";
+                }
+            }
+            catch
+            {
+                Error = Error + "The Game Rating was not a valid number :";
+            }
+
+            // return any error messages
+            return Error;
         }
+
 
     }
 }
