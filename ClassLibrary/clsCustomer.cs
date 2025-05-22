@@ -159,14 +159,46 @@ namespace ClassLibrary
         {
             //create an string variable to store the error
             String Error = "";
+            //create a tempary variable to store the date values
+            DateTime DateTemp;
             //if the CustomerNo is blank
             if (email.Length == 0)
             {
                 //record the error
-                Error = Error + "the email may not be left blank :";
+                Error = Error + "The email may not be left blank :";
+            }
+            if (email.Length > 50) 
+            {
+                //record the error
+                Error = Error + "The email must be less than 50 characters :";
+            }
+            //create an instace of DateTime to compare with DateOfBirth
+            //in the if statements
+            DateTime DateComp = DateTime.Now.Date;
+            try
+            {
+                //copy the dateAdded value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(dateOfBirth);
+
+                //check to see if the data is less than 100 years before todays date
+                if (DateTemp < DateTime.Now.Date.AddYears(-100))
+                {
+                    Error = Error + "The data cannot be over 100 years ago : ";
+                }
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    Error = Error + "The data cannot be in the future : ";
+                }
+            }
+            catch 
+            {
+                //record tge error
+                Error = Error + "The data was not a valid date : ";
             }
             //return any error messages
             return Error;
         }
+
+
     }
 }
