@@ -7,8 +7,11 @@ namespace ClassLibrary
     {
         //private data member for the list
         List<ClsStock> mStockList = new List<ClsStock>();
-        //public property for the address list 
+        //private member data for ThisStock
+        ClsStock mThisStock = new ClsStock();
 
+
+        //public property for the address list 
         public List<ClsStock> StockList
         {
             get
@@ -35,7 +38,19 @@ namespace ClassLibrary
             }
         }
 
-        public ClsStock ThisStock { get; set; }
+        public ClsStock ThisStock
+        {
+            get
+            {
+                //return the private data
+                return mThisStock;
+            }
+            set
+            {
+                //set the private data
+                mThisStock = value;
+            }
+        }
         
         //constructor for the class 
         public ClsStockCollection()
@@ -70,5 +85,12 @@ namespace ClassLibrary
             }
         }
 
+        public int Add()
+        {
+            //set the primary key value of the new record
+            mThisStock.GameId = 123;
+            //return the primary key of the new record
+            return mThisStock.GameId;
+        }
     }
 }

@@ -93,5 +93,33 @@ namespace Testing4
             Assert.AreEqual(AllStock.Count, TestList.Count);
         }
 
+        [TestMethod]
+        public void AddMethodOK()
+        {
+            //create an instance of the class we want to create
+            ClsStockCollection AllStock = new ClsStockCollection();
+            //create the item of test data
+            ClsStock TestItem = new ClsStock();
+            //variable to store the primary key 
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestItem.IsDigital = true;
+            TestItem.GameId = 22;
+            TestItem.GameTitle = "Urvarshi";
+            TestItem.GameReleaseDate = DateTime.Now;
+            TestItem.GamePrice = 10000000000000000.00m;
+            TestItem.StockQty = 50;
+            TestItem.GameRating = 9;
+            //set ThisStock to the test data
+            AllStock.ThisStock = TestItem;
+            //add the record
+            PrimaryKey = AllStock.Add();
+            //set the primary key of the test data
+            TestItem.GameId = PrimaryKey;
+            //find the record
+            AllStock.ThisStock.Find(PrimaryKey);
+            //test to see that the two values are the same
+            Assert.AreEqual(AllStock.ThisStock, TestItem);
+        }
     }
 }
