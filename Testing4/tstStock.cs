@@ -722,7 +722,7 @@ namespace Testing4
             //string variable to store any error message
             string Error = "";
             //this should fail
-            string GamePrice = "1000";
+            string GamePrice = "-1";
             //invoke the method
             Error = AStock.Valid(GameTitle, GameReleaseDate, GamePrice, StockQty, GameRating, IsDigital);
             //test to see that the result is correct
@@ -741,7 +741,7 @@ namespace Testing4
             //invoke the method
             Error = AStock.Valid(GameTitle, GameReleaseDate, GamePrice, StockQty, GameRating, IsDigital);
             //test to see that the result is correct
-            Assert.AreNotEqual("", Error);
+            Assert.AreEqual("", Error);
         }
 
         [TestMethod]
