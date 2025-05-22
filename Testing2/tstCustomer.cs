@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -323,7 +324,7 @@ namespace Testing2
         }
 
 
-
+        //Email boundary tests
         [TestMethod]
         public void EmailMinLessOne()
         {
@@ -382,6 +383,270 @@ namespace Testing2
             Error = AnCustomer.Valid(Email, DateOfBirth, FullName, Address, PhoneNumber);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void EmailMax()
+        {
+            //create an instance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string Email = "anakinSkywalker@outlook.comanakinSkywalker@outlook"; //this should be okay
+            //invoke the method
+            Error = AnCustomer.Valid(Email, DateOfBirth, FullName, Address, PhoneNumber);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void EmailMid()
+        {
+            //create an instance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string Email = "anakinSkywalker@outlook.c"; //this should be okay
+            //invoke the method
+            Error = AnCustomer.Valid(Email, DateOfBirth, FullName, Address, PhoneNumber);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void EmailMaxPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string Email = "anakinSkywalker@outlook.comanakinSkywalker@outlook."; //this should fail
+            //invoke the method
+            Error = AnCustomer.Valid(Email, DateOfBirth, FullName, Address, PhoneNumber);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void EmailExtremeMax()
+        {
+            //create an instance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string Email = "";
+            Email = Email.PadRight(500, 'a'); //this should fail
+            //invoke the method
+            Error = AnCustomer.Valid(Email, DateOfBirth, FullName, Address, PhoneNumber);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        //DateOfBirth boundary tests
+        [TestMethod]
+        public void DateOfBirthExtremeMin()
+        {
+            //create a new insance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //string variable to store any error message
+            String Error = "";
+            //create a variable to store the test data
+            DateTime TestDate;
+            //set the date to todays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less 1000 years
+            TestDate = TestDate.AddYears(-1000);
+            //convert the data variable to a string variable
+            string DateOfBirth = TestDate.ToString();
+            //invoke the method
+            Error = AnCustomer.Valid(Email, DateOfBirth, FullName, Address, PhoneNumber);
+            //test to see that result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateOfBirthMinLessOne()
+        {
+            //create a new insance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //string variable to store any error message
+            String Error = "";
+            //create a variable to store the test data
+            DateTime TestDate;
+            //set the date to todays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less 100 years less 1 day
+            TestDate = TestDate.AddYears(-100).AddDays(-1);
+            //convert the data variable to a string variable
+            string DateOfBirth = TestDate.ToString();
+            //invoke the method
+            Error = AnCustomer.Valid(Email, DateOfBirth, FullName, Address, PhoneNumber);
+            //test to see that result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateOfBirthMin()
+        {
+            //create a new insance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //string variable to store any error message
+            String Error = "";
+            //create a variable to store the test data
+            DateTime TestDate;
+            //set the date to todays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less 100 years
+            TestDate = TestDate.AddYears(-100);
+            //convert the data variable to a string variable
+            string DateOfBirth = TestDate.ToString();
+            //invoke the method
+            Error = AnCustomer.Valid(Email, DateOfBirth, FullName, Address, PhoneNumber);
+            //test to see that result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateOfBirthMinPlusOne()
+        {
+            //create a new insance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //string variable to store any error message
+            String Error = "";
+            //create a variable to store the test data
+            DateTime TestDate;
+            //set the date to todays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less 100 years plus 1 day
+            TestDate = TestDate.AddYears(-100).AddDays(1);
+            //convert the data variable to a string variable
+            string DateOfBirth = TestDate.ToString();
+            //invoke the method
+            Error = AnCustomer.Valid(Email, DateOfBirth, FullName, Address, PhoneNumber);
+            //test to see that result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateOfBirthMid()
+        {
+            //create a new insance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //string variable to store any error message
+            String Error = "";
+            //create a variable to store the test data
+            DateTime TestDate;
+            //set the date to todays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less 50 years
+            TestDate = TestDate.AddYears(-50);
+            //convert the data variable to a string variable
+            string DateOfBirth = TestDate.ToString();
+            //invoke the method
+            Error = AnCustomer.Valid(Email, DateOfBirth, FullName, Address, PhoneNumber);
+            //test to see that result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateOfBirthMaxLessOne()
+        {
+            //create a new insance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //string variable to store any error message
+            String Error = "";
+            //create a variable to store the test data
+            DateTime TestDate;
+            //set the date to todays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less 1 day
+            TestDate = TestDate.AddDays(-1);
+            //convert the data variable to a string variable
+            string DateOfBirth = TestDate.ToString();
+            //invoke the method
+            Error = AnCustomer.Valid(Email, DateOfBirth, FullName, Address, PhoneNumber);
+            //test to see that result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateOfBirthMax()
+        {
+            //create a new insance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //string variable to store any error message
+            String Error = "";
+            //create a variable to store the test data
+            DateTime TestDate;
+            //set the date to todays date
+            TestDate = DateTime.Now.Date;
+            //convert the data variable to a string variable
+            string DateOfBirth = TestDate.ToString();
+            //invoke the method
+            Error = AnCustomer.Valid(Email, DateOfBirth, FullName, Address, PhoneNumber);
+            //test to see that result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateOfBirthMaxPlusOne()
+        {
+            //create a new insance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //string variable to store any error message
+            String Error = "";
+            //create a variable to store the test data
+            DateTime TestDate;
+            //set the date to todays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is plus 1 day
+            TestDate = TestDate.AddDays(1);
+            //convert the data variable to a string variable
+            string DateOfBirth = TestDate.ToString();
+            //invoke the method
+            Error = AnCustomer.Valid(Email, DateOfBirth, FullName, Address, PhoneNumber);
+            //test to see that result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateOfBirthExtemeMax()
+        {
+            //create a new insance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //string variable to store any error message
+            String Error = "";
+            //create a variable to store the test data
+            DateTime TestDate;
+            //set the date to todays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is plus 1000 years
+            TestDate = TestDate.AddYears(1000);
+            //convert the data variable to a string variable
+            string DateOfBirth = TestDate.ToString();
+            //invoke the method
+            Error = AnCustomer.Valid(Email, DateOfBirth, FullName, Address, PhoneNumber);
+            //test to see that result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateOfBirthInvalidData()
+        {
+            //create an instance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //string variable to store any error message
+            String Error = "";
+            //set the DateOfBirth to  a non date value
+            string DateOfBirth = "this is not a date";
+            //invoke the method
+            Error = AnCustomer.Valid(Email, DateOfBirth, FullName, Address, PhoneNumber);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
         }
     }
 }
