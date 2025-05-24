@@ -163,25 +163,34 @@ namespace ClassLibrary
             }
         }
 
-        public string Valid(string StaffId, string StaffName, string JoinDate, string StaffEmail, string StaffPhoneNumber, string StaffSalary)
+        public string Valid(string staffSalary, string staffName, string joinDate, string staffEmail, string staffPhoneNumber, string morePermissions)
         {
             // Create a string variable to store the error
             String Error = "";
+            
 
-            String tempStaffSalary = Convert.ToString(StaffSalary);
-
-            if (tempStaffSalary.Length == 0)
+            try
             {
-                Error = Error + "The Salary must have at least 1 whole number and 2 decimal numbers";
+                decimal TempSalary = Convert.ToDecimal(staffSalary);
+
+                if (TempSalary <= 0)
+                {
+                    Error = Error + "The salary must be higher than 0";
+                }
+
+                if (TempSalary >= 99999999)
+                {
+                    Error = Error + "The salary is too high! ";
+                }
+            }
+            catch
+            {
+                Error = Error + "The salary is not a valid number";
             }
 
-            if (tempStaffSalary.Length == 12)
-            {
-                Error = Error + "The Salary must be a smaller number";
-            }
             return Error;
 
-            
+
         }
     }
 }
