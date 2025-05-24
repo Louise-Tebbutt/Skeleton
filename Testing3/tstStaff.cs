@@ -362,10 +362,10 @@ namespace Testing3
             clsStaff AnStaff = new clsStaff();
 
             // String vairable to store error messages
-            String Error = "";
+            string Error = "";
 
             // Invoke the method
-            Error = AnStaff.Valid(StaffName, JoinDate, StaffEmail, StaffPhoneNumber, StaffSalary, MorePermissions);
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
 
             // Test to see that the result is correct
             Assert.AreEqual(Error, "");
@@ -378,7 +378,7 @@ namespace Testing3
             clsStaff AnStaff = new clsStaff();
 
             // String c=variable to store any error message
-            String Error = "";
+            string Error = "";
 
             // Create some test data to pass to the method
             string StaffSalary = "0";
@@ -387,7 +387,7 @@ namespace Testing3
             Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
 
             // Test to see that the result is correct
-            Assert.AreNotEqual(Error, "");
+            Assert.AreNotEqual("" ,Error);
 
         }
 
@@ -398,10 +398,10 @@ namespace Testing3
             clsStaff AnStaff = new clsStaff();
 
             // String variable to store an error messages
-            String Error = "";
+            string Error = "";
 
             // Create some test data to pass to the method
-            String StaffSalary = "0.01";
+            string StaffSalary = "0.01";
 
             // Invoke the method
             Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
@@ -441,6 +441,7 @@ namespace Testing3
             // Create some test data to pass the method
             string StaffSalary = "999999999.99";
 
+            // Invoke the method
             Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
 
             // Test to see the result is correct
