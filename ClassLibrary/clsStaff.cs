@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Linq.Expressions;
 
 namespace ClassLibrary
@@ -167,8 +168,11 @@ namespace ClassLibrary
         {
             // Create a string variable to store the error
             String Error = "";
-            
 
+            // Create a variable to store date values
+            DateTime TempDate;
+
+            // StaffSalary
             try
             {
                 decimal TempSalary = Convert.ToDecimal(staffSalary);
@@ -178,7 +182,7 @@ namespace ClassLibrary
                     Error = Error + "The salary must be higher than 0";
                 }
 
-                if (TempSalary >= 99999999)
+                if (TempSalary >= 100000000)
                 {
                     Error = Error + "The salary is too high! ";
                 }
@@ -186,6 +190,54 @@ namespace ClassLibrary
             catch
             {
                 Error = Error + "The salary is not a valid number";
+            }
+
+            // StaffName
+            try
+            {
+
+                if (staffName.Length < 1)
+                {
+                    Error = Error + "The Staff Name must not be blank";
+                }
+
+                if (staffName.Length > 50)
+                {
+                    Error = Error + "The staff name must not be longer than 50 characters";
+                }
+
+                if (staffName.Any(char.IsDigit))
+                {
+                    Error = Error + "The staff name must not contain numbers";
+                }
+            }
+            catch
+            {
+                Error = Error + "The staff name is invalid";
+            }
+
+
+            // JoinDate
+
+            DateTime DateComp = DateTime.Now.Date;
+
+            try
+            {
+                TempDate = Convert.ToDateTime(joinDate);
+
+                if (TempDate < DateComp)
+                {
+                    Error = Error + "The date cant be in the past";
+                }
+
+                if (TempDate > DateComp)
+                {
+                    Error = Error + "The date cant be in the future";
+                }
+            }
+            catch
+            {
+                Error = Error + "The date is incorrect";
             }
 
             return Error;
