@@ -240,9 +240,57 @@ namespace ClassLibrary
                 Error = Error + "The date is incorrect";
             }
 
+            // StaffEmail
+
+            try
+            {
+                
+                if (staffEmail.Length < 1)
+                {
+                    Error = Error + "The Email cant be blank";
+                }
+
+                if (staffEmail.Length > 50)
+                {
+                    Error = Error + "The Email cant proceed 50 characters";
+                }
+
+                if (!staffEmail.Contains("@example.com"))
+                {
+                    Error = Error + "The email is isnt in the correct format";
+                }
+            }
+            catch
+            {
+                Error = Error + "The email is invalid";
+            }
+
+            // StaffPhoneNumber
+            try
+            {
+                if ( staffPhoneNumber.Length < 7)
+                {
+                    Error = Error + "The phone number cannot be smaller than 7 characters";
+                }
+
+                if (staffPhoneNumber.Length > 15)
+                {
+                    Error = Error + "The phone number cannot be largers than 15";
+                }
+
+                if (!staffPhoneNumber.Any(char.IsDigit))
+                {
+                    Error = Error + "The phone number must contain numbers";
+                }
+            }
+            catch
+            {
+                Error = Error + "The phone number is invalid";
+            }
+
             return Error;
 
-
+            
         }
     }
 }
