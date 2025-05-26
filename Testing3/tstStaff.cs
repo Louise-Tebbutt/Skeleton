@@ -365,7 +365,7 @@ namespace Testing3
             string Error = "";
 
             // Invoke the method
-            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber);
 
             // Test to see that the result is correct
             Assert.AreEqual(Error, "");
@@ -384,7 +384,7 @@ namespace Testing3
             string StaffSalary = "0.00";
 
             // Invoke the method
-            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber);
 
             // Test to see that the result is correct
             Assert.AreNotEqual("" ,Error);
@@ -404,7 +404,7 @@ namespace Testing3
             string StaffSalary = "0.01";
 
             // Invoke the method
-            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber);
 
             // test to see that the result is correct
             Assert.AreEqual(Error, "");
@@ -423,7 +423,7 @@ namespace Testing3
             string StaffSalary = "1.00";
 
             // Invoke the method
-            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber);
 
             // Test to see the result is correct
             Assert.AreEqual(Error, "");
@@ -442,7 +442,7 @@ namespace Testing3
             string StaffSalary = "99999999.98";
 
             // Invoke the method
-            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber);
 
             // Test to see the result is correct
             Assert.AreEqual(Error, "");
@@ -461,7 +461,7 @@ namespace Testing3
             string StaffSalary = "99999999.99";
 
             // Invoke the method
-            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber);
 
             // Test to see the result is correct
             Assert.AreEqual(Error, "");
@@ -480,7 +480,7 @@ namespace Testing3
             string StaffSalary = "100000000.00";
 
             // Invoke the method
-            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber);
 
             // Test to see the result is correct
             Assert.AreNotEqual(Error, "");
@@ -501,7 +501,7 @@ namespace Testing3
             string StaffSalary = "12345678910.55";
 
             // Invoke the method
-            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber);
 
             // Test to see the result is correct
             Assert.AreNotEqual(Error, "");
@@ -520,7 +520,7 @@ namespace Testing3
             string StaffSalary = "-500.55";
 
             // Invoke the method
-            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber);
 
             // Test to see the result is correct
             Assert.AreNotEqual(Error, "");
@@ -539,7 +539,7 @@ namespace Testing3
             string StaffSalary = "Hello World";
 
             // Invoke the method
-            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber);
 
             // Test to see the result is correct
             Assert.AreNotEqual(Error, "");
@@ -558,7 +558,7 @@ namespace Testing3
             string StaffName = "";
 
             // Invoke the method
-            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber);
 
             // Test to see the result is correct
             Assert.AreNotEqual(Error, "");
@@ -577,7 +577,7 @@ namespace Testing3
             string StaffName = "a";
 
             // Invoke the method
-            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber);
 
             // Test to see the result is correct
             Assert.AreEqual(Error, "");
@@ -596,7 +596,7 @@ namespace Testing3
             string StaffName = "aa";
 
             // Invoke the method
-            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber);
 
             // Test to see the result is correct
             Assert.AreEqual(Error, "");
@@ -616,7 +616,7 @@ namespace Testing3
             StaffName = StaffName.PadRight(49, 'a');
 
             // Invoke the method
-            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber);
 
             // Test to see the result is correct
             Assert.AreEqual(Error, "");
@@ -636,7 +636,7 @@ namespace Testing3
             StaffName = StaffName.PadRight(50, 'a');
 
             // Invoke the method
-            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber);
 
             // Test to see the result is correct
             Assert.AreEqual(Error, "");
@@ -656,7 +656,7 @@ namespace Testing3
             StaffName = StaffName.PadRight(51, 'a');
 
             // Invoke the method
-            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber);
 
             // Test to see the result is correct
             Assert.AreNotEqual(Error, "");
@@ -676,7 +676,7 @@ namespace Testing3
             StaffName = StaffName.PadRight(25, 'a');
 
             // Invoke the method
-            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber);
 
             // Test to see the result is correct
             Assert.AreEqual(Error, "");
@@ -696,7 +696,7 @@ namespace Testing3
             StaffName = StaffName.PadRight(150, 'a');
 
             // Invoke the method
-            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber);
 
             // Test to see the result is correct
             Assert.AreNotEqual(Error, "");
@@ -715,7 +715,7 @@ namespace Testing3
             string StaffName = "555.55";
 
             // Invoke the method
-            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber);
 
             // Test to see the result is correct
             Assert.AreNotEqual(Error, "");
@@ -743,7 +743,7 @@ namespace Testing3
             string JoinDate = TestDate.ToString();
 
             // Invoke the method
-            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber);
 
             // Test to see the result is correct
             Assert.AreNotEqual(Error, "");
@@ -768,7 +768,7 @@ namespace Testing3
             string JoinDate = TestDate.ToString();
 
             // Invoke the method
-            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber);
 
             // Test to see the result is correct
             Assert.AreEqual(Error, "");
@@ -796,7 +796,7 @@ namespace Testing3
             string JoinDate = TestDate.ToString();
 
             // Invoke the method
-            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber);
 
             // Test to see the result is correct
             Assert.AreNotEqual(Error, "");
@@ -824,7 +824,7 @@ namespace Testing3
             string JoinDate = TestDate.ToString();
 
             // Invoke the method
-            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber);
 
             // Test to see the result is correct
             Assert.AreNotEqual(Error, "");
@@ -852,7 +852,7 @@ namespace Testing3
             string JoinDate = TestDate.ToString();
 
             // Invoke the method
-            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber);
 
             // Test to see the result is correct
             Assert.AreNotEqual(Error, "");
@@ -871,7 +871,7 @@ namespace Testing3
             string JoinDate = "Hello World";
 
             // Invoke the method
-            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber);
 
             // Test to see the result is correct
             Assert.AreNotEqual(Error, "");
@@ -890,7 +890,7 @@ namespace Testing3
             string StaffEmail = "example.com";
 
             // Invoke the method
-            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber);
 
             // Test to see the result is correct
             Assert.AreNotEqual(Error, "");
@@ -909,7 +909,7 @@ namespace Testing3
             string StaffEmail = "@example.com";
 
             // Invoke the method
-            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber);
 
             // Test to see the result is correct
             Assert.AreEqual(Error, "");
@@ -928,7 +928,7 @@ namespace Testing3
             string StaffEmail = "a@example.com";
 
             // Invoke the method
-            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber);
 
             // Test to see the result is correct
             Assert.AreEqual(Error, "");
@@ -949,7 +949,7 @@ namespace Testing3
             StaffEmail = StaffEmail + "@example.com";
 
             // Invoke the method
-            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber);
 
             // Test to see the result is correct
             Assert.AreEqual(Error, "");
@@ -970,7 +970,7 @@ namespace Testing3
             StaffEmail = StaffEmail + "@example.com";
 
             // Invoke the method
-            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber);
 
             // Test to see the result is correct
             Assert.AreEqual(Error, "");
@@ -991,7 +991,7 @@ namespace Testing3
             StaffEmail = StaffEmail + "@example.com";
 
             // Invoke the method
-            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber);
 
             // Test to see the result is correct
             Assert.AreNotEqual(Error, "");
@@ -1012,7 +1012,7 @@ namespace Testing3
             StaffEmail = StaffEmail + "@example.com";
 
             // Invoke the method
-            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber);
 
             // Test to see the result is correct
             Assert.AreEqual(Error, "");
@@ -1031,7 +1031,7 @@ namespace Testing3
             string StaffEmail = "";
 
             // Invoke the method
-            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber);
 
             // Test to see the result is correct
             Assert.AreNotEqual(Error, "");
@@ -1052,7 +1052,7 @@ namespace Testing3
             StaffEmail = StaffEmail + "@example.com";
 
             // Invoke the method
-            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber);
 
             // Test to see the result is correct
             Assert.AreNotEqual(Error, "");
@@ -1071,7 +1071,7 @@ namespace Testing3
             string StaffEmail = "555.55";
 
             // Invoke the method
-            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber);
 
             // Test to see the result is correct
             Assert.AreNotEqual(Error, "");
@@ -1090,7 +1090,7 @@ namespace Testing3
             string StaffEmail = "Hello World";
 
             // Invoke the method
-            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber);
 
             // Test to see the result is correct
             Assert.AreNotEqual(Error, "");
@@ -1109,7 +1109,7 @@ namespace Testing3
             string StaffPhoneNumber = "012345";
 
             // Invoke the method
-            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber);
 
             // Test to see the result is correct
             Assert.AreNotEqual(Error, "");
@@ -1128,7 +1128,7 @@ namespace Testing3
             string StaffPhoneNumber = "0123456";
 
             // Invoke the method
-            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber);
 
             // Test to see the result is correct
             Assert.AreEqual(Error, "");
@@ -1147,7 +1147,7 @@ namespace Testing3
             string StaffPhoneNumber = "01234567";
 
             // Invoke the method
-            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber);
 
             // Test to see the result is correct
             Assert.AreEqual(Error, "");
@@ -1166,7 +1166,7 @@ namespace Testing3
             string StaffPhoneNumber = "01234567891011";
 
             // Invoke the method
-            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber);
 
             // Test to see the result is correct
             Assert.AreEqual(Error, "");
@@ -1185,7 +1185,7 @@ namespace Testing3
             string StaffPhoneNumber = "012345678910111";
 
             // Invoke the method
-            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber);
 
             // Test to see the result is correct
             Assert.AreEqual(Error, "");
@@ -1204,7 +1204,7 @@ namespace Testing3
             string StaffPhoneNumber = "0123456789101112";
 
             // Invoke the method
-            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber);
 
             // Test to see the result is correct
             Assert.AreNotEqual(Error, "");
@@ -1223,7 +1223,7 @@ namespace Testing3
             string StaffPhoneNumber = "01234567891";
 
             // Invoke the method
-            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber);
 
             // Test to see the result is correct
             Assert.AreEqual(Error, "");
@@ -1242,7 +1242,7 @@ namespace Testing3
             string StaffPhoneNumber = "";
 
             // Invoke the method
-            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber);
 
             // Test to see the result is correct
             Assert.AreNotEqual(Error, "");
@@ -1262,7 +1262,7 @@ namespace Testing3
             StaffPhoneNumber = StaffPhoneNumber.PadRight(25, '1');
 
             // Invoke the method
-            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber);
 
             // Test to see the result is correct
             Assert.AreNotEqual(Error, "");
@@ -1281,7 +1281,7 @@ namespace Testing3
             string StaffPhoneNumber = "Hello World";
 
             // Invoke the method
-            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber, MorePermissions);
+            Error = AnStaff.Valid(StaffSalary, StaffName, JoinDate, StaffEmail, StaffPhoneNumber);
 
             // Test to see the result is correct
             Assert.AreNotEqual(Error, "");
