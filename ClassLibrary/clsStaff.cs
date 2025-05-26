@@ -164,7 +164,7 @@ namespace ClassLibrary
             }
         }
 
-        public string Valid(string staffSalary, string staffName, string joinDate, string staffEmail, string staffPhoneNumber, string morePermissions)
+        public string Valid(string staffSalary, string staffName, string joinDate, string staffEmail, string staffPhoneNumber)
         {
             // Create a string variable to store the error
             String Error = "";
@@ -175,13 +175,16 @@ namespace ClassLibrary
             // StaffSalary
             try
             {
+                // convert the staffSalary to a TempSalary to have it work in decimal
                 decimal TempSalary = Convert.ToDecimal(staffSalary);
-
+                
+                // Confirm that staff salary isnt below 0
                 if (TempSalary <= 0)
                 {
                     Error = Error + "The salary must be higher than 0";
                 }
 
+                // Confirm that staff salary isnt too high
                 if (TempSalary >= 100000000)
                 {
                     Error = Error + "The salary is too high! ";
@@ -196,16 +199,19 @@ namespace ClassLibrary
             try
             {
 
+                // Confirm that the staff name isnt blank
                 if (staffName.Length < 1)
                 {
                     Error = Error + "The Staff Name must not be blank";
                 }
 
+                // Confirm that the staff name isnt above 50 characters
                 if (staffName.Length > 50)
                 {
                     Error = Error + "The staff name must not be longer than 50 characters";
                 }
 
+                // Confirm that the staff name doesnt contain any numbers
                 if (staffName.Any(char.IsDigit))
                 {
                     Error = Error + "The staff name must not contain numbers";
@@ -219,17 +225,21 @@ namespace ClassLibrary
 
             // JoinDate
 
+            // Record the current time into a temp variable
             DateTime DateComp = DateTime.Now.Date;
 
             try
             {
+                // Convert the join date to a Temporary date to safely use it
                 TempDate = Convert.ToDateTime(joinDate);
 
+                // Compart joindate to current date to make sure is isnt the past date
                 if (TempDate < DateComp)
                 {
                     Error = Error + "The date cant be in the past";
                 }
 
+                // Compare join date to current date to make sure it isnt in the future
                 if (TempDate > DateComp)
                 {
                     Error = Error + "The date cant be in the future";
@@ -245,16 +255,19 @@ namespace ClassLibrary
             try
             {
                 
+                // Confirm that the staff email isnt blank
                 if (staffEmail.Length < 1)
                 {
                     Error = Error + "The Email cant be blank";
                 }
 
+                // Confirm that the staff email isnt above 50 characters
                 if (staffEmail.Length > 50)
                 {
                     Error = Error + "The Email cant proceed 50 characters";
                 }
 
+                // Confirms the integrity of the input to make sure it is an email
                 if (!staffEmail.Contains("@example.com"))
                 {
                     Error = Error + "The email is isnt in the correct format";
@@ -268,16 +281,19 @@ namespace ClassLibrary
             // StaffPhoneNumber
             try
             {
+                // confirm that the staff phone number isnt below 7 characters
                 if ( staffPhoneNumber.Length < 7)
                 {
                     Error = Error + "The phone number cannot be smaller than 7 characters";
                 }
 
+                // confirm that the staff phone number isnt above 15 characters
                 if (staffPhoneNumber.Length > 15)
                 {
                     Error = Error + "The phone number cannot be largers than 15";
                 }
 
+                // confirm that the staff phone number contains numbers
                 if (!staffPhoneNumber.Any(char.IsDigit))
                 {
                     Error = Error + "The phone number must contain numbers";
@@ -288,6 +304,7 @@ namespace ClassLibrary
                 Error = Error + "The phone number is invalid";
             }
 
+            // return any errors
             return Error;
 
             
