@@ -51,5 +51,61 @@ namespace Testing3
             // Test to see the two values are the same
             Assert.AreEqual(AllStaff.StaffList, TestList);
         }
+
+        [TestMethod]
+        public void ThisAddressPropertyOk()
+        {
+            // Create an instance of the class we want to create
+            clsStaffCollection AllStaff = new clsStaffCollection();
+
+            // Create some test data to assign to the property
+            clsStaff TestStaff = new clsStaff();
+
+            // Set the properties of the test object
+            TestStaff.StaffId = 1;
+            TestStaff.StaffName = "Test";
+            TestStaff.StaffEmail = "Test@example.com";
+            TestStaff.StaffPhoneNumber = "07517161922";
+            TestStaff.StaffSalary = 55.05m;
+            TestStaff.JoinDate = DateTime.Now;
+            TestStaff.MorePermissions = true;
+
+            // Assign the data to the property
+            AllStaff.ThisStaff = TestStaff;
+
+            // Test to see the two values are the same
+            Assert.AreEqual(AllStaff.ThisStaff, TestStaff);
+        }
+
+        [TestMethod]
+        public void ListAndcountOk()
+        {
+            // Create an instance of the class we want to create
+            clsStaffCollection AllStaff = new clsStaffCollection();
+
+            // Create some test data to assign the property
+            List<clsStaff> TestList = new List<clsStaff>();
+
+            // Add an Item to the list
+            clsStaff TestItem = new clsStaff();
+
+            // Set its properties
+            TestItem.StaffId = 1;
+            TestItem.StaffName = "Test";
+            TestItem.StaffEmail = "Test@example.com";
+            TestItem.StaffPhoneNumber = "07517161922";
+            TestItem.StaffSalary = 55.05m;
+            TestItem.JoinDate = DateTime.Now;
+            TestItem.MorePermissions = true;
+
+            // Add the item to the test list
+            TestList.Add(TestItem);
+
+            // Assign the data to the property
+            AllStaff.StaffList = TestList;
+
+            // Test to see that the two values are the same
+            Assert.AreEqual(AllStaff.Count, TestList.Count);
+        }
     }
 }
