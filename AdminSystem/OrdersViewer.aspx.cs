@@ -14,11 +14,8 @@ public partial class _1Viewer : System.Web.UI.Page
         ClsOrder AnOrder = new ClsOrder();
         //get the data from the session object
         AnOrder = (ClsOrder)Session["AnOrder"];
-        //display if Order is not null
-        if (AnOrder != null)
-        {
-            //display the attribute in clsOrder class
-            Response.Write("OrderId :" + AnOrder.OrderId + "<br />");
-        }
+        //display the CustomerId for this entry
+        Response.Write(AnOrder.OrderId);
+        
     }
 }
