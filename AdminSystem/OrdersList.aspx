@@ -9,6 +9,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <asp:ListBox ID="lstOrderList" runat="server"></asp:ListBox>
         </div>
     </form>
 </body>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Activities.Expressions;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -31,9 +32,34 @@ public partial class _1_DataEntry : System.Web.UI.Page
         AnOrder.ShippingAddress = Convert.ToString(txtShippingAddress.Text);
         //capture StaffId
         AnOrder.StaffId = Convert.ToInt32(txtStaffId.Text);
+        //captureActive check box
+        string Active = chkActive.Text;
+        //variable to store any error messages
+        string Error = "";
+        //validate the data
+        Error = AnOrder.Valid(CustomerId, Orderdate, TotalAmount, PaymentStatus, ShippingAddress);
+        if (Error == "")
+        {
+            //capture the customerId
+            AnOrder.CustomerId = CustomerId;
+            //capture Orderdate
+            AnOrder.OrderDate = Orderdate;
+            //capture the totalamount
+            AnOrder.TotalAmount = TotalAmount;
+            //capture paymentstatus
+            AnOrder.PaymentStatus = PaymentStatus;
+            //capture shippingAddress
+            AnOrder.ShippingAddress = ShippingAddress;
+            //store the Order in the same session object
+            Session["AnOrder"] = AnOrder;
+
+        }
         //navigate to the view page
         Response.Redirect("OrdersViewer.aspx");
     }
+    
+    
+    
 
     protected void Button3_Click(object sender, EventArgs e)
     {
