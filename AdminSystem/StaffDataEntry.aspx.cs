@@ -148,16 +148,31 @@ public partial class _1_DataEntry : System.Web.UI.Page
         clsStaffCollection StaffBook = new clsStaffCollection();
 
         // find the record to update
-        StaffBook.ThisStaff.Find(StaffId);
+        bool found = StaffBook.ThisStaff.Find(StaffId);
 
         // Display the data for the record
-        txtStaffId.Text = StaffBook.ThisStaff.StaffId.ToString();
-        txtStaffName.Text = StaffBook.ThisStaff.StaffName.ToString();
-        txtJoinDate.Text = StaffBook.ThisStaff.JoinDate.ToString();
-        txtStaffEmail.Text = StaffBook.ThisStaff.StaffEmail.ToString();
-        txtStaffPhoneNumber.Text = StaffBook.ThisStaff.StaffPhoneNumber.ToString();
-        txtStaffSalary.Text = StaffBook.ThisStaff.StaffSalary.ToString();
-        chkMorePermissions.Checked = StaffBook.ThisStaff.MorePermissions;
+        if (found && StaffBook.ThisStaff != null)
+        {
+            txtStaffId.Text = StaffBook.ThisStaff.StaffId.ToString();
+            txtStaffName.Text = StaffBook.ThisStaff.StaffName.ToString();
+            txtJoinDate.Text = StaffBook.ThisStaff.JoinDate.ToString();
+            txtStaffEmail.Text = StaffBook.ThisStaff.StaffEmail.ToString();
+            txtStaffPhoneNumber.Text = StaffBook.ThisStaff.StaffPhoneNumber.ToString();
+            txtStaffSalary.Text = StaffBook.ThisStaff.StaffSalary.ToString();
+            chkMorePermissions.Checked = StaffBook.ThisStaff.MorePermissions;
+        }
+        // Return empty if the data is not found
+        else
+        {
+            txtStaffId.Text = "";
+            txtStaffName.Text = "";
+            txtJoinDate.Text = "";
+            txtStaffEmail.Text = "";
+            txtStaffPhoneNumber.Text = "";
+            txtStaffSalary.Text = "";
+            chkMorePermissions.Checked = false;
+
+        }
 
     }
 }
