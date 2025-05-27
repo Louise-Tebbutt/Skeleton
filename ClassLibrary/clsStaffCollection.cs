@@ -6,6 +6,8 @@ namespace ClassLibrary
     public class clsStaffCollection
     {
         List<clsStaff> mStaffList = new List<clsStaff>();
+
+        clsStaff mThisStaff = new clsStaff();
         public List<clsStaff> StaffList
         {
             get
@@ -33,7 +35,19 @@ namespace ClassLibrary
             }
         }
 
-        public clsStaff ThisStaff { get; set; }
+        public clsStaff ThisStaff
+        {
+            get
+            {
+                //Return the private member-
+                return mThisStaff;
+            }
+            set
+            {
+                //Set the private member
+                mThisStaff = value;
+            }
+        }
 
         // Constructor for the class
         public clsStaffCollection()
@@ -75,6 +89,43 @@ namespace ClassLibrary
                 Index++;
 
             }
+        }
+
+        public int Add()
+        {
+            // Adds a record to the database based on the values of mThisStaff
+            // connect to database
+            clsDataConnection DB = new clsDataConnection();
+
+            // Set the perameters for the stored procedure
+            DB.AddParameter("@StaffName", mThisStaff.StaffName);
+            DB.AddParameter("@StaffEmail", mThisStaff.StaffEmail);
+            DB.AddParameter("@StaffPhoneNumber", mThisStaff.StaffPhoneNumber);
+            DB.AddParameter("@StaffSalary", mThisStaff.StaffSalary);
+            DB.AddParameter("@JoinDate", mThisStaff.JoinDate);
+            DB.AddParameter("@MorePermissions", mThisStaff.MorePermissions);
+
+            // Return the primary key of the record
+            return DB.Execute("sproc_tblStaff_Insert");
+        }
+
+        public void Update()
+        {
+
+            // Connect to the database
+            clsDataConnection DB = new clsDataConnection();
+
+            // Set the parameters for the stored procedure
+            DB.AddParameter("@StaffId", mThisStaff.StaffId);
+            DB.AddParameter("@StaffName", mThisStaff.StaffName);
+            DB.AddParameter("@StaffEmail", mThisStaff.StaffEmail);
+            DB.AddParameter("@StaffPhoneNumber", mThisStaff.StaffPhoneNumber);
+            DB.AddParameter("@StaffSalary", mThisStaff.StaffSalary);
+            DB.AddParameter("@JoinDate", mThisStaff.JoinDate);
+            DB.AddParameter("@MorePermissions", mThisStaff.MorePermissions);
+
+            // Execute the stored procedure
+            DB.Execute("sproc_tblStaff_Update");
         }
     }
 }
