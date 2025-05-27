@@ -87,10 +87,39 @@ namespace ClassLibrary
 
         public int Add()
         {
-            //set the primary key value of the new record
-            mThisStock.GameId = 123;
-            //return the primary key of the new record
-            return mThisStock.GameId;
+            // Adds a record to the database based on the values of ThisStock
+            // Connect to the database
+            clsDataConnection DB = new clsDataConnection();
+
+            // Set the parameters for the stored procedure
+            DB.AddParameter("@GameTitle", mThisStock.GameTitle);
+            DB.AddParameter("@GameReleaseDate", mThisStock.GameReleaseDate);
+            DB.AddParameter("@GamePrice", mThisStock.GamePrice);
+            DB.AddParameter("@StockQty", mThisStock.StockQty);
+            DB.AddParameter("@GameRating", mThisStock.GameRating);
+            DB.AddParameter("@IsDigital", mThisStock.IsDigital);
+
+            // Execute the query returning the primary key value
+            return DB.Execute("sproc_tblStock_Insert");
+        }
+
+        public void Update()
+        {  
+           // update an existing record based on the values of ThisStock
+           // connect to the database
+            clsDataConnection DB = new clsDataConnection();
+
+            // set the parameters for the new stored procedure
+            DB.AddParameter("@GameId", mThisStock.GameId);
+            DB.AddParameter("@GameTitle", mThisStock.GameTitle);
+            DB.AddParameter("@GameReleaseDate", mThisStock.GameReleaseDate);
+            DB.AddParameter("@GamePrice", mThisStock.GamePrice);
+            DB.AddParameter("@StockQty", mThisStock.StockQty);
+            DB.AddParameter("@GameRating", mThisStock.GameRating);
+            DB.AddParameter("@IsDigital", mThisStock.IsDigital);
+
+            // execute the stored procedure
+            DB.Execute("sproc_tblStock_Update");
         }
     }
 }

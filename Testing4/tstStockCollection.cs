@@ -32,9 +32,9 @@ namespace Testing4
             //set its properties
             TestItem.IsDigital = true;
             TestItem.GameId = 22;
-            TestItem.GameTitle = "Urvarshi";
+            TestItem.GameTitle = "TMNT";
             TestItem.GameReleaseDate = DateTime.Now;
-            TestItem.GamePrice = 10000000000000000.00m;
+            TestItem.GamePrice = 59.99m;
             TestItem.StockQty = 50;
             TestItem.GameRating = 9;
             //add item to the test list
@@ -55,9 +55,9 @@ namespace Testing4
             //set the properties of the test object
             TestStock.IsDigital = true;
             TestStock.GameId = 22;
-            TestStock.GameTitle = "Urvarshi";
+            TestStock.GameTitle = "TMNT";
             TestStock.GameReleaseDate = DateTime.Now;
-            TestStock.GamePrice = 10000000000000000.00m;
+            TestStock.GamePrice = 59.99m;
             TestStock.StockQty = 50;
             TestStock.GameRating = 9;
             //assign the data to the property 
@@ -80,9 +80,9 @@ namespace Testing4
             //set its properties
             TestItem.IsDigital = true;
             TestItem.GameId = 22;
-            TestItem.GameTitle = "Urvarshi";
+            TestItem.GameTitle = "TMNT";
             TestItem.GameReleaseDate = DateTime.Now;
-            TestItem.GamePrice = 10000000000000000.00m;
+            TestItem.GamePrice = 59.99m;
             TestItem.StockQty = 50;
             TestItem.GameRating = 9;
             //add item to the test list
@@ -105,9 +105,9 @@ namespace Testing4
             //set its properties
             TestItem.IsDigital = true;
             TestItem.GameId = 22;
-            TestItem.GameTitle = "Urvarshi";
+            TestItem.GameTitle = "TMNT";
             TestItem.GameReleaseDate = DateTime.Now;
-            TestItem.GamePrice = 10000000000000000.00m;
+            TestItem.GamePrice = 59.99m;
             TestItem.StockQty = 50;
             TestItem.GameRating = 9;
             //set ThisStock to the test data
@@ -121,5 +121,53 @@ namespace Testing4
             //test to see that the two values are the same
             Assert.AreEqual(AllStock.ThisStock, TestItem);
         }
+
+        [TestMethod]
+        public void UpdateMethodOK()
+        {
+            //create an instance of the collection class we want to test
+            ClsStockCollection AllStock = new ClsStockCollection();
+
+            //create the item of test data
+            ClsStock TestItem = new ClsStock();
+            //variable to store the primary key
+            Int32 PrimaryKey = 0;
+
+            //set the properties of the test data
+            TestItem.IsDigital = true;
+            TestItem.GameTitle = "TMNT";
+            TestItem.GameReleaseDate = DateTime.Now.Date;
+            TestItem.GamePrice = 59.99m;
+            TestItem.StockQty = 50;
+            TestItem.GameRating = 9;
+
+            //assign the test item to ThisStock
+            AllStock.ThisStock = TestItem;
+
+            //add the record and capture the primary key
+            PrimaryKey = AllStock.Add();
+            TestItem.GameId = PrimaryKey;
+
+            //modify the test data
+            TestItem.IsDigital = false;
+            TestItem.GameTitle = "Horizon Zero Dawn";
+            TestItem.GameReleaseDate = DateTime.Now;
+            TestItem.GamePrice = 69.99m;
+            TestItem.StockQty = 100;
+            TestItem.GameRating = 10;
+
+            //set ThisStock to the updated test item
+            AllStock.ThisStock = TestItem;
+
+            //call the update method
+            AllStock.Update();
+
+            //find the updated record
+            AllStock.ThisStock.Find(PrimaryKey);
+
+            //test to see if ThisStock matches the test data
+            Assert.AreEqual(AllStock.ThisStock, TestItem);
+        }
+
     }
 }
