@@ -41,21 +41,25 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
         if (Error == "")
         {
-            //no errors, so capture the values in the stock object
-
-            AStock.GameId = Convert.ToInt32(GameId);
+            //capture the values
             AStock.GameTitle = GameTitle;
             AStock.GameReleaseDate = Convert.ToDateTime(GameReleaseDate);
             AStock.GamePrice = Convert.ToDecimal(GamePrice);
             AStock.StockQty = Convert.ToInt32(StockQty);
             AStock.GameRating = Convert.ToInt32(GameRating);
-            AStock.IsDigital = Convert.ToBoolean(IsDigital); // convert back to bool from string
+            AStock.IsDigital = chkIsDigital.Checked;
 
-            //store the stock object in the session
-            Session["AStock"] = AStock;
+            //create a new instance of the stock collection
+            ClsStockCollection StockCollection = new ClsStockCollection();
 
-            //navigate to the viewer page
-            Response.Redirect("StockViewer.aspx");
+            //set the ThisStock property
+            StockCollection.ThisStock = AStock;
+
+            //add the new record
+            StockCollection.Add();
+
+            //redirect back to the stock list page
+            Response.Redirect("StockList.aspx");
         }
         else
         {
