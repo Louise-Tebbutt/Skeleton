@@ -172,6 +172,41 @@ namespace ClassLibrary
                 //record the error
                 Error = Error + "The email must be less than 50 characters :";
             }
+            if (fullName.Length < 1) 
+            {
+                //record the error
+                Error = Error + "The full name must not be left blank";
+            }
+            if (fullName.Length > 50) 
+            {
+                //record the error
+                Error = Error + "The FullName must be less than 50 characters";
+            }
+
+            if (address.Length < 1) 
+            {
+                //record the error
+                Error = Error + "The address must not be left blank";
+            }
+
+            if (address.Length > 50)
+            {
+                //record the error
+                Error = Error + "The address must be less than 50 chracters";
+            }
+
+            if (phoneNumber.Length < 1)
+            {
+                //record the error
+                Error = Error + "The phone number must not be left blank";
+            }
+
+            if (phoneNumber.Length > 15)
+            {
+                //record the error
+                Error = Error + "The phone number must be less than 15 chracters";
+            }
+
             //create an instace of DateTime to compare with DateOfBirth
             //in the if statements
             DateTime DateComp = DateTime.Now.Date;
