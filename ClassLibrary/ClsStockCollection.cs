@@ -55,34 +55,14 @@ namespace ClassLibrary
         //constructor for the class 
         public ClsStockCollection()
         {
-            //variable for the index 
-            Int32 Index = 0;
-            //variable to store the record count 
-            Int32 RecordCount = 0;
-            //onject for the data connect
+            //object for data connection
             clsDataConnection DB = new clsDataConnection();
-            //execute the stored procedure
+
+            //execute the stored procedure to retrieve all stock records
             DB.Execute("sproc_tblStock_SelectAll");
-            //get the count of records
-            RecordCount = DB.Count;
-            //while there are records to process
-            while (Index < RecordCount)
-            {
-                //create a blank stock 
-                ClsStock AStock = new ClsStock();
-                //read in the fields for the current records 
-                AStock.GameId = Convert.ToInt32(DB.DataTable.Rows[Index]["GameId"]);
-                AStock.GameTitle = Convert.ToString(DB.DataTable.Rows[Index]["GameTitle"]);
-                AStock.GameReleaseDate = Convert.ToDateTime(DB.DataTable.Rows[Index]["GameReleaseDate"]);
-                AStock.GamePrice = Convert.ToDecimal(DB.DataTable.Rows[Index]["GamePrice"]);
-                AStock.StockQty = Convert.ToInt32(DB.DataTable.Rows[Index]["StockQty"]);
-                AStock.GameRating = Convert.ToInt32(DB.DataTable.Rows[Index]["GameRating"]);
-                AStock.IsDigital = Convert.ToBoolean(DB.DataTable.Rows[Index]["IsDigital"]);
-                //add the record to the private data member 
-                mStockList.Add(AStock);
-                //point at the next record
-                Index++;
-            }
+
+            //populate the list using the reusable method
+            PopulateArray(DB);
         }
 
         public int Add()
@@ -131,6 +111,57 @@ namespace ClassLibrary
             DB.AddParameter("@GameId", mThisStock.GameId);
             //execute the stored procedure
             DB.Execute("sproc_tblStock_Delete");
+        }
+
+        public void ReportByGameTitle(string GameTitle)
+        {
+            //filters the records based on a full or partial game title
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+
+            //send the GameTitle parameter to the database
+            DB.AddParameter("@GameTitle", GameTitle);
+
+            //execute the stored procedure
+            DB.Execute("sproc_tblStock_FilterByGameTitle");
+            //populate the array list with the data table
+            PopulateArray(DB);
+        }
+
+        void PopulateArray(clsDataConnection DB)
+        {
+            //populates the array list based on the data table in the parameter DB
+            // Variable for the index
+            Int32 Index = 0;
+            //variable to store the record count 
+            Int32 RecordCount;
+            //get the count of records
+            RecordCount = DB.Count;
+
+            // Clear the private array list
+            mStockList = new List<ClsStock>();
+
+            // While there are records to process
+            while (Index < RecordCount)
+            {
+                // Create a blank stock object
+                ClsStock AStock = new ClsStock();
+
+                // Read in the fields from the current record
+                AStock.GameId = Convert.ToInt32(DB.DataTable.Rows[Index]["GameId"]);
+                AStock.GameTitle = Convert.ToString(DB.DataTable.Rows[Index]["GameTitle"]);
+                AStock.GameReleaseDate = Convert.ToDateTime(DB.DataTable.Rows[Index]["GameReleaseDate"]);
+                AStock.GamePrice = Convert.ToDecimal(DB.DataTable.Rows[Index]["GamePrice"]);
+                AStock.StockQty = Convert.ToInt32(DB.DataTable.Rows[Index]["StockQty"]);
+                AStock.GameRating = Convert.ToInt32(DB.DataTable.Rows[Index]["GameRating"]);
+                AStock.IsDigital = Convert.ToBoolean(DB.DataTable.Rows[Index]["IsDigital"]);
+
+                // Add the record to the private data member
+                mStockList.Add(AStock);
+
+                // Point to the next record
+                Index++;
+            }
         }
     }
 }
