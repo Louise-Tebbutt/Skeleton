@@ -9,9 +9,22 @@ using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
+    //variable to store the primary key with page level scope 
+    Int32 GameId;
     protected void Page_Load(object sender, EventArgs e)
     {
+        // get the number of the stock record to be processed
+        GameId = Convert.ToInt32(Session["GameId"]);
 
+        if (IsPostBack == false)
+        {
+            // if this is not a new record
+            if (GameId != -1)
+            {
+                // display the current data for the record
+                DisplayStock();
+            }
+        }
     }
 
     protected void txtGameTitle_TextChanged(object sender, EventArgs e)
@@ -21,27 +34,33 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
     protected void btnOK_Click(object sender, EventArgs e)
     {
-        //create a new instance of ClsStock
+        // Create a new instance of ClsStock
         ClsStock AStock = new ClsStock();
 
-        //capture the input data from the textboxes
+        // Capture input data from textboxes
         string GameId = txtGameId.Text;
         string GameTitle = txtGameTitle.Text;
         string GameReleaseDate = txtGameReleaseDate.Text;
         string GamePrice = txtGamePrice.Text;
         string StockQty = txtStockQty.Text;
         string GameRating = txtGameRating.Text;
-        string IsDigital = chkIsDigital.Checked.ToString(); // checkbox returns bool; convert to string
+        string IsDigital = chkIsDigital.Checked.ToString();
 
-        //string variable to store any error message
+        // String variable to store error message
         string Error = "";
 
-        //validate the data
+        // Validate the data
         Error = AStock.Valid(GameTitle, GameReleaseDate, GamePrice, StockQty, GameRating, IsDigital);
 
         if (Error == "")
         {
-            //capture the values
+            // Get the GameId from the session
+            Int32 GameIdInt = Convert.ToInt32(Session["GameId"]);
+
+            // DON'T MISS THIS BIT: Assign the GameId
+            AStock.GameId = GameIdInt;
+
+            // Assign values to the stock object
             AStock.GameTitle = GameTitle;
             AStock.GameReleaseDate = Convert.ToDateTime(GameReleaseDate);
             AStock.GamePrice = Convert.ToDecimal(GamePrice);
@@ -49,21 +68,29 @@ public partial class _1_DataEntry : System.Web.UI.Page
             AStock.GameRating = Convert.ToInt32(GameRating);
             AStock.IsDigital = chkIsDigital.Checked;
 
-            //create a new instance of the stock collection
+            // Create a new instance of the stock collection
             ClsStockCollection StockCollection = new ClsStockCollection();
 
-            //set the ThisStock property
-            StockCollection.ThisStock = AStock;
+            if (GameIdInt == -1)
+            {
+                // This is a new record
+                StockCollection.ThisStock = AStock;
+                StockCollection.Add();
+            }
+            else
+            {
+                // This is an update to an existing record
+                StockCollection.ThisStock.Find(GameIdInt);
+                StockCollection.ThisStock = AStock;
+                StockCollection.Update();
+            }
 
-            //add the new record
-            StockCollection.Add();
-
-            //redirect back to the stock list page
+            // Redirect to the list page
             Response.Redirect("StockList.aspx");
         }
         else
         {
-            //display the error
+            // Display the error
             lblError.Text = Error;
         }
     }
@@ -107,5 +134,23 @@ public partial class _1_DataEntry : System.Web.UI.Page
             txtGameRating.Text = " ";
    
         }
+    }
+
+    void DisplayStock()
+    {
+        // create an instance of the stock collection
+        ClsStockCollection StockBook = new ClsStockCollection();
+
+        // find the record to update
+        StockBook.ThisStock.Find(GameId);
+
+        // display the data for the record
+        txtGameId.Text = StockBook.ThisStock.GameId.ToString();
+        txtGameTitle.Text = StockBook.ThisStock.GameTitle.ToString();
+        txtGameReleaseDate.Text = StockBook.ThisStock.GameReleaseDate.ToString();
+        txtGamePrice.Text = StockBook.ThisStock.GamePrice.ToString();
+        txtStockQty.Text = StockBook.ThisStock.StockQty.ToString();
+        txtGameRating.Text = StockBook.ThisStock.GameRating.ToString();
+        chkIsDigital.Checked = StockBook.ThisStock.IsDigital;
     }
 }
