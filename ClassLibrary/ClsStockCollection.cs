@@ -121,5 +121,16 @@ namespace ClassLibrary
             // execute the stored procedure
             DB.Execute("sproc_tblStock_Update");
         }
+
+        public void Delete()
+        {
+            //deletes the record pointed to by thisStock
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedures
+            DB.AddParameter("@GameId", mThisStock.GameId);
+            //execute the stored procedure
+            DB.Execute("sproc_tblStock_Delete");
+        }
     }
 }

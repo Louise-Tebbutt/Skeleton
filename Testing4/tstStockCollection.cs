@@ -44,7 +44,7 @@ namespace Testing4
             //test to see that the two values are the same 
             Assert.AreEqual(AllStock.StockList, TestList);
         }
-        
+
         [TestMethod]
         public void ThisStockPropertyOk()
         {
@@ -65,7 +65,7 @@ namespace Testing4
             //test to see that the two values are the same
             Assert.AreEqual(AllStock.ThisStock, TestStock);
         }
-        
+
         [TestMethod]
         public void ListAndCountOK()
         {
@@ -169,5 +169,48 @@ namespace Testing4
             Assert.AreEqual(AllStock.ThisStock, TestItem);
         }
 
+
+
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            // Create an instance of the class we want to create
+            ClsStockCollection AllStock = new ClsStockCollection();
+
+            // Create the item of test data
+            ClsStock TestItem = new ClsStock();
+
+            // Variable to store the primary key
+            Int32 PrimaryKey = 0;
+
+            // Set its properties
+            TestItem.IsDigital = true;
+            TestItem.GameTitle = "TMNT";
+            TestItem.GameReleaseDate = DateTime.Now;
+            TestItem.GamePrice = 59.99m;
+            TestItem.StockQty = 50;
+            TestItem.GameRating = 9;
+
+            // Set ThisStock to the test data
+            AllStock.ThisStock = TestItem;
+
+            // Add the record and capture the primary key
+            PrimaryKey = AllStock.Add();
+
+            // Set the GameId of the test data to the newly generated primary key
+            TestItem.GameId = PrimaryKey;
+
+            // Find the record
+            AllStock.ThisStock.Find(PrimaryKey);
+
+            // Delete the record
+            AllStock.Delete();
+
+            // Try to find the record again
+            Boolean Found = AllStock.ThisStock.Find(PrimaryKey);
+
+            // Test to see that the record was not found
+            Assert.IsFalse(Found);
+        }
     }
-}
+}   
