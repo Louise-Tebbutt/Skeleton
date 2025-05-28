@@ -2,6 +2,7 @@
 using ClassLibrary;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using System.Runtime.Remoting.Messaging;
 
 
 namespace Testing4
@@ -212,5 +213,35 @@ namespace Testing4
             // Test to see that the record was not found
             Assert.IsFalse(Found);
         }
+
+        [TestMethod]
+        public void ReportByGameTitleMethodOK()
+        {
+            // Create an instance of the class containing unfiltered results
+            ClsStockCollection AllStock = new ClsStockCollection();
+
+            // Create an instance of the filtered data
+            ClsStockCollection FilteredStock = new ClsStockCollection();
+
+            // Apply a blank string (should return all records)
+            FilteredStock.ReportByGameTitle("");
+
+            // Test to see that the two values are the same
+            Assert.AreEqual(AllStock.Count, FilteredStock.Count);
+        }
+
+        [TestMethod]
+        public void ReportByGameTitleNoneFound()
+        {
+            // Create an instance of the class we want to create
+            ClsStockCollection FilteredStock = new ClsStockCollection();
+
+            // Apply a game title that doesn't exist
+            FilteredStock.ReportByGameTitle("Nonexistent Game Title 123");
+
+            // Test to see that there are no records
+            Assert.AreEqual(0, FilteredStock.Count);
+        }
+
     }
 }   
