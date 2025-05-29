@@ -88,4 +88,49 @@ public partial class _1_List : System.Web.UI.Page
             lblError.Text = "Please select a record from the list to delete";
         }
     }
+
+    protected void btnApplyFilter_Click(object sender, EventArgs e)
+    {
+        // Create an instance of the stock collection
+        ClsStockCollection FilteredStock = new ClsStockCollection();
+
+        // Retrieve the GameTitle filter text from the presentation layer
+        FilteredStock.ReportByGameTitle(txtFilter.Text);
+
+        // Set the data source to the list of filtered stock records
+        lstStockList.DataSource = FilteredStock.StockList;
+
+        // Set the primary key field
+        lstStockList.DataValueField = "GameId";
+
+        // Set the field to display in the list
+        lstStockList.DataTextField = "GameTitle";
+
+        // Bind the data to the list control
+        lstStockList.DataBind();
+    }
+
+    protected void btnClearFilter_Click(object sender, EventArgs e)
+    {
+        // Create an instance of the stock collection
+        ClsStockCollection AllStock = new ClsStockCollection();
+
+        // Reset the filter by passing an empty string
+        AllStock.ReportByGameTitle("");
+
+        // Clear the text in the filter textbox
+        txtFilter.Text = "";
+
+        // Set the data source to the full list of stock
+        lstStockList.DataSource = AllStock.StockList;
+
+        // Set the name of the primary key
+        lstStockList.DataValueField = "GameId";
+
+        // Set the name of the field to display
+        lstStockList.DataTextField = "GameTitle";
+
+        // Bind the data to the list
+        lstStockList.DataBind();
+    }
 }

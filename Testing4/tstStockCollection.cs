@@ -243,5 +243,40 @@ namespace Testing4
             Assert.AreEqual(0, FilteredStock.Count);
         }
 
+        [TestMethod]
+        public void ReportByGameTitleTestDataFound()
+        {
+            // Create an instance of the filtered data
+            ClsStockCollection FilteredStock = new ClsStockCollection();
+
+            // Variable to store the outcome
+            Boolean OK = true;
+
+            // Apply a game title that is expected to return two records (set up in test DB)
+            FilteredStock.ReportByGameTitle("yyy yyy");
+
+            // Check that the correct number of records are found
+            if (FilteredStock.Count == 2)
+            {
+                // Check to see that the first record's GameId is 25
+                if (FilteredStock.StockList[0].GameId != 25)
+                {
+                    OK = false;
+                }
+
+                // Check to see that the second record's GameId is 26
+                if (FilteredStock.StockList[1].GameId != 26)
+                {
+                    OK = false;
+                }
+            }
+            else
+            {
+                OK = false;
+            }
+
+            // Test to see that everything matched
+            Assert.IsTrue(OK);
+        }
     }
 }   
