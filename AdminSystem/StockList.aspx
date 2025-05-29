@@ -17,6 +17,17 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" style="height: 26px" Text="Delete " />
 &nbsp;<p>
+            &nbsp;</p>
+        <asp:Label runat="server" Text="Enter a Game Title"></asp:Label>
+&nbsp;&nbsp;
+        <asp:TextBox ID="txtFilter" runat="server"></asp:TextBox>
+        <p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="btnApplyFilter" runat="server" OnClick="btnApplyFilter_Click" Text="Apply Filter" />
+&nbsp;
+            <asp:Button ID="btnClearFilter" runat="server" OnClick="btnClearFilter_Click" Text="Clear Filter" />
+        </p>
+        <p>
             <asp:Label ID="lblError" runat="server" ForeColor="Red"></asp:Label>
         </p>
     </form>
