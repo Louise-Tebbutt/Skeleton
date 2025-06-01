@@ -904,7 +904,7 @@ namespace Testing2
             clsCustomer AnCustomer = new clsCustomer();
             //string variable to store any error message
             String Error = "";
-            //set the FullName to a string with 25 characters
+            //set the PhoneNumber to a empty string
             string PhoneNumber = "";
             //invoke the method
             Error = AnCustomer.Valid(Email, DateOfBirth, FullName, Address, PhoneNumber);
@@ -919,7 +919,7 @@ namespace Testing2
             clsCustomer AnCustomer = new clsCustomer();
             //string variable to store any error message
             String Error = "";
-            //set the FullName to a string with 25 characters
+            //set the PhoneNumber to a string with 1 character
             string PhoneNumber = "2";
             //invoke the method
             Error = AnCustomer.Valid(Email, DateOfBirth, FullName, Address, PhoneNumber);
@@ -934,7 +934,7 @@ namespace Testing2
             clsCustomer AnCustomer = new clsCustomer();
             //string variable to store any error message
             String Error = "";
-            //set the FullName to a string with 25 characters
+            //set the PhoneNumber to string with 2 characters
             string PhoneNumber = "21";
             //invoke the method
             Error = AnCustomer.Valid(Email, DateOfBirth, FullName, Address, PhoneNumber);
@@ -949,12 +949,73 @@ namespace Testing2
             clsCustomer AnCustomer = new clsCustomer();
             //string variable to store any error message
             String Error = "";
-            //set the FullName to a string with 25 characters
+            //set the PhoneNumber to string with 7 characters
             string PhoneNumber = "2125012";
             //invoke the method
             Error = AnCustomer.Valid(Email, DateOfBirth, FullName, Address, PhoneNumber);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PhoneNumberMaxMinusOne()
+        {
+            //create an instance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //string variable to store any error message
+            String Error = "";
+            //set the PhoneNumber to string with 14 characters
+            string PhoneNumber = "21250121250121";
+            //invoke the method
+            Error = AnCustomer.Valid(Email, DateOfBirth, FullName, Address, PhoneNumber);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PhoneNumberMax()
+        {
+            //create an instance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //string variable to store any error message
+            String Error = "";
+            //set the PhoneNumber to straing with 15 characters
+            string PhoneNumber = "21250121250121";
+            //invoke the method
+            Error = AnCustomer.Valid(Email, DateOfBirth, FullName, Address, PhoneNumber);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PhoneNumberMaxPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //string variable to store any error message
+            String Error = "";
+            //set the PhoneNumber to staring of 16 characters
+            string PhoneNumber = "2125012125012150";
+            //invoke the method
+            Error = AnCustomer.Valid(Email, DateOfBirth, FullName, Address, PhoneNumber);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PhoneNumberExtreameMax()
+        {
+            //create an instance of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //string variable to store any error message
+            String Error = "";
+            //set the PhoneNumber to a straing with 50 characters
+            string PhoneNumber = "";
+            PhoneNumber = PhoneNumber.PadRight(50, 'a');
+            //invoke the method
+            Error = AnCustomer.Valid(Email, DateOfBirth, FullName, Address, PhoneNumber);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
         }
     }
 }
