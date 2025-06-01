@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -31,7 +32,20 @@ public partial class _1_DataEntry : System.Web.UI.Page
         AnCustomer.PhoneNumber = txtPhoneNumber.Text;
         //capture the active stuff
         AnCustomer.Active = cbActive.Checked;
-
+        Session["AnCustomer"] = AnCustomer;
+        //variale to store any error messages
+        string Error = "";
+        //validate the data
+        Error = AnCustomer.Valid(CustomerNo, Email, DateOfBirth, FullName, Address, PhoneNumber);
+        if (Error == "")
+        {
+            //capture the customer number 
+            AnCustomer.CustomerNo = CustomerNo;
+            //capture the email
+            AnCustomer.Email
+        }
+        //navigate to view page
+        Response.Redirect("CustomerViewer.aspx");
     }
 
     protected void btnFind_Click(object sender, EventArgs e)
