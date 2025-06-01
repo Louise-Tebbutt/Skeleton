@@ -68,4 +68,73 @@ public partial class _1_List : System.Web.UI.Page
             lblError.Text = "Please select a record from the list to edit";
         }
     }
+
+    protected void btnDelete_Click(object sender, EventArgs e)
+    {
+        // variable to store the primary key value of the record to be delete
+        Int32 StaffId;
+
+        // If a record has been selected from the list
+        if (lstStaffList.SelectedIndex != -1)
+        {
+            // Get the primary key value of the record delete
+            StaffId = Convert.ToInt32(lstStaffList.SelectedValue);
+
+            // Store the data in the session object
+            Session["StaffId"] = StaffId;
+
+            // Redirect to the delete page
+            Response.Redirect("StaffConfirmDelete.aspx");
+        }
+        else // if no record has been selected
+        {
+            // Display an errorm message
+            lblError.Text = "Please select a record from the list to delete";
+        }
+    }
+
+    protected void btnApply_Click(object sender, EventArgs e)
+    {
+        // Create an instance of the staff object
+        clsStaffCollection AnStaff = new clsStaffCollection();
+
+        // Retrieve the value of Staff Name from the presentation layer
+        AnStaff.ReportByStaffName(txtFilter.Text);
+
+        // Set the data source to the list of staff in the collection
+        lstStaffList.DataSource = AnStaff.StaffList;
+
+        // Set the name of the primary value key
+        lstStaffList.DataValueField = "StaffId";
+
+        // Set the name of the field to display
+        lstStaffList.DataTextField = "StaffName";
+
+        // Bind the data to the list
+        lstStaffList.DataBind();
+    }
+
+    protected void btnClear_Click(object sender, EventArgs e)
+    {
+        // Create an instance of the staff object
+        clsStaffCollection AnStaff = new clsStaffCollection();
+
+        // Set an empty string
+        AnStaff.ReportByStaffName("");
+
+        // Clear any existing filter to tidy up the interface
+        txtFilter.Text = "";
+
+        // Set the data source to the list of staff in the collection
+        lstStaffList.DataSource = AnStaff.StaffList;
+
+        // Set the name of the primary key
+        lstStaffList.DataValueField = "StaffId";
+
+        // Set the name of the field to display
+        lstStaffList.DataTextField = "StaffName";
+
+        // Bind the data to the list
+        lstStaffList.DataBind();
+    }
 }
