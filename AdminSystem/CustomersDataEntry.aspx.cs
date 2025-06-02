@@ -19,19 +19,19 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //Create a new instance of the class
         clsCustomer AnCustomer = new clsCustomer();
         //Capture the cusomterNo
-        AnCustomer.CustomerNo = Convert.ToInt32(txtCustomer.Text);
+        int CustomerNo = int.Parse(txtCustomer.Text);
         //Capture the Email
-        AnCustomer.Email = txtEmail.Text;
+        string Email = txtEmail.Text;
         //capture the dateOfBirth
-        AnCustomer.DateOfBirth = Convert.ToDateTime(txtDateOfBirth.Text);
+        string DateOfBirth = txtDateOfBirth.Text;
         //capture the fullname
-        AnCustomer.FullName = txtFullName.Text;
+        string FullName = txtFullName.Text;
         //capture the address
-        AnCustomer.Address = txtAddress.Text;
+        string Address = txtAddress.Text;
         //capture the PhoneNumber
-        AnCustomer.PhoneNumber = txtPhoneNumber.Text;
+        string PhoneNumber = txtPhoneNumber.Text;
         //capture the active stuff
-        AnCustomer.Active = cbActive.Checked;
+        bool Active = cbActive.Checked;
         Session["AnCustomer"] = AnCustomer;
         //variale to store any error messages
         string Error = "";
@@ -42,10 +42,20 @@ public partial class _1_DataEntry : System.Web.UI.Page
             //capture the customer number 
             AnCustomer.CustomerNo = CustomerNo;
             //capture the email
-            AnCustomer.Email
+            AnCustomer.Email = Email;
+            //capture the date of birth
+            AnCustomer.DateOfBirth = Convert.ToDateTime(DateOfBirth);
+            //capture the full name
+            AnCustomer.FullName = FullName;
+            //caapture the address
+            AnCustomer.Address = Address;
+            //capture the phone number
+            AnCustomer.Address = Address;
+            //capture the active stuff
+            AnCustomer.Active = Active;
         }
         //navigate to view page
-        Response.Redirect("CustomerViewer.aspx");
+        Response.Redirect("CustomersViewer.aspx");
     }
 
     protected void btnFind_Click(object sender, EventArgs e)

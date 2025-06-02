@@ -155,7 +155,7 @@ namespace ClassLibrary
             return "";
         }
 
-        public string Valid(string email, string dateOfBirth, string fullName, string address, string phoneNumber)
+        public string Valid(int customerNo, string email, string dateOfBirth, string fullName, string address, string phoneNumber)
         {
             //create an string variable to store the error
             String Error = "";
@@ -233,7 +233,6 @@ namespace ClassLibrary
             //return any error messages
             return Error;
         }
-
 
     }
 }
