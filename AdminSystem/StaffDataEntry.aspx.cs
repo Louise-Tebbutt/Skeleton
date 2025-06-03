@@ -175,4 +175,16 @@ public partial class _1_DataEntry : System.Web.UI.Page
         }
 
     }
+
+    protected void btnReturnMainMenu_Click(object sender, EventArgs e)
+    {
+        // Redirect to the main menu
+        Response.Redirect("TeamMainMenu.aspx");
+    }
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+        // Redirect the user back to the List Page
+        Response.Redirect("StaffList.aspx");
+    }
 }

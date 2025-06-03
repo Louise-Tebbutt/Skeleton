@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Linq;
 using System.Linq.Expressions;
 
@@ -308,6 +309,32 @@ namespace ClassLibrary
             return Error;
 
             
+        }
+
+        /****** Statistics grouped by JoinDate METHOD ******/
+        public DataTable StatisticsGroupedByJoinDate()
+        {
+            // Create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+
+            // Execute the stored procedure
+            DB.Execute("sproc_tblStaff_Count_GroupByJoinDate");
+
+            // There should be either a zero, one, or more records
+            return DB.DataTable;
+        }
+
+        /****** Statistics grouped by StaffSalary METHOD ******/
+        public DataTable StatisticsGroupedByStaffSalary()
+        {
+            // Create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+
+            // Execute the stored procedure
+            DB.Execute("sproc_tblStaff_Count_GroupByStaffSalary");
+
+            // There should either be a zero, one, or more records
+            return DB.DataTable;
         }
     }
 }
