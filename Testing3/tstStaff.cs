@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using ClassLibrary;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -1285,6 +1286,38 @@ namespace Testing3
 
             // Test to see the result is correct
             Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StatStatisticsGroupedByJoinDate()
+        {
+            // Create an instance of the class we want to create
+            clsStaff AnStaff = new clsStaff();
+
+            // Invoke the method
+            DataTable dT = AnStaff.StatisticsGroupedByJoinDate();
+
+            // According to the last executed stored procedure, there should be eight rows of data
+            int noOfRecord = 8;
+
+            // Test to see that the result is correct
+            Assert.AreEqual(noOfRecord, dT.Rows.Count);
+        }
+
+        [TestMethod]
+        public void StatStatisticsGroupedByStaffSalary()
+        {
+            // Create an instance of the class we want to create
+            clsStaff AnStaff = new clsStaff();
+
+            // Invoke the method
+            DataTable dT = AnStaff.StatisticsGroupedByStaffSalary();
+
+            // According to the last executed stored procedure, there should be 3 rows of data
+            int noOfRecord = 3;
+
+            // Test to see that the result is correct
+            Assert.AreEqual(noOfRecord, dT.Rows.Count);
         }
 
     }

@@ -137,4 +137,15 @@ public partial class _1_List : System.Web.UI.Page
         // Bind the data to the list
         lstStaffList.DataBind();
     }
+
+    protected void btnStatPage_Click(object sender, EventArgs e)
+    {
+        // redirect to the statistics page
+        Response.Redirect("StaffStatistics.aspx");
+    }
+
+    protected void btnReturnMainMenu_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("TeamMainMenu.aspx");
+    }
 }
