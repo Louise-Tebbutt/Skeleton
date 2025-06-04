@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace Testing2
 {
-    internal class tstCustomerCollection
+    public class tstCustomerCollection
     {
+        public void InstanceOK()
+        {
+            //create an instance of the class we want to create
+            clsCustomerCollection AllCustomer = new clsCustomerCollection();
+            //test to see that it exists
+            Assert.IsNotNull(AllCustomer);
+        }
     }
 }
