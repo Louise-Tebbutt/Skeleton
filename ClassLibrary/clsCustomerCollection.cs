@@ -1,40 +1,45 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ClassLibrary;
 
 namespace ClassLibrary
 {
     public class clsCustomerCollection
     {
+        public clsCustomer AnCustomer { get; private set; }
         //constructor for the class
         public clsCustomerCollection()
         {
-            //create the item of test data
-            clsCustomer TestItem = new clsCustomer();
-            //set its properties
-            TestItem.CustomerNo = 3;
-            TestItem.Email = "AshokaTano@outlook.com";
-            TestItem.DateOfBirth = DateTime.Now;
-            TestItem.FullName = "Plo Koon";
-            TestItem.Address = "501 Anakin Stret";
-            TestItem.PhoneNumber = "1234567890";
-            TestItem.Active = true;
-            //addd the item to the test list
-            mCustomerList.Add(TestItem);
-            //re instilaise the object for some data
-            TestItem = new clsCustomer();
-            //set its properties
-            TestItem.CustomerNo = 4;
-            TestItem.Email = "ObiWanKennobi@outlook.com";
-            TestItem.DateOfBirth = DateTime.Now;
-            TestItem.FullName = "Rey Skywalker";
-            TestItem.Address = "212 Kennobi Street";
-            TestItem.PhoneNumber = "1234567890";
-            TestItem.Active = true;
-            //addd the item to the test list
-            mCustomerList.Add(TestItem);
+            //variable for the index
+            Int32 Index = 0;
+            //variable to store the record count
+            Int32 RecordCount = 0;
+            //object for the data connect
+            clsDataConnection DB = new clsDataConnection();
+            //exectue the stored procedure
+            DB.Execute("sproc_tblCustomer_SelectAll");
+            //get the count of records
+            RecordCount = DB.Count;
+            //while there are records to process
+            while (Index < RecordCount)
+            {
+                //create a blank customer 
+                AnCustomer.CustomerNo = Convert.ToInt32(DB.DataTable.Rows[Index]["CustomerNo"]);
+                AnCustomer.Email = Convert.ToString(DB.DataTable.Rows[Index]["Email"]);
+                AnCustomer.DateOfBirth = Convert.ToDateTime(DB.DataTable.Rows[Index]["DateOfBirth"]);
+                AnCustomer.FullName = Convert.ToString(DB.DataTable.Rows[Index]["FullName"]);
+                AnCustomer.Address = Convert.ToString(DB.DataTable.Rows[Index]["Address"]);
+                AnCustomer.PhoneNumber = Convert.ToString(DB.DataTable.Rows[Index]["PhoneNumber"]);
+                AnCustomer.Active = Convert.ToBoolean(DB.DataTable.Rows[Index]["Active"]);
+                //add the rcord to the private data member
+                mCustomerList.Add(AnCustomer);
+                //point at the next record
+                Index++;
+            }
         }
         //private data meber for the list
         List<clsCustomer> mCustomerList = new List<clsCustomer>();

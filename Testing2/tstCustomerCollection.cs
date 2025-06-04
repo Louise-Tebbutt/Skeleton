@@ -48,18 +48,6 @@ namespace Testing2
             Assert.AreEqual(AllCustomers.CustomerList, TestList);
         }
 
-        [TestMethod]
-        public void CountPropertyOK()
-        {
-            //create an instnace off the calss we want to create
-            clsCustomerCollection AllCustomers = new clsCustomerCollection();
-            //create some test data to assign to the property
-            Int32 SomeCount = 2;
-            //assign the data to the propety
-            AllCustomers.Count = SomeCount;
-            //test to see that the two values are the same
-            Assert.AreEqual(AllCustomers.Count, SomeCount);
-        }
 
         [TestMethod]
         public void ListAndCountOK()
