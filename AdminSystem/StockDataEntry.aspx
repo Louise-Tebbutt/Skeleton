@@ -4,28 +4,36 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Stock Data Entry</title>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:Label ID="IblGameId" runat="server" style="z-index: 1; left: 9px; top: 11px; position: absolute; width: 113px; bottom: 638px" Text="GameId"></asp:Label>
-            <asp:TextBox ID="txtGameId" runat="server" style="z-index: 1; left: 165px; top: 13px; position: absolute"></asp:TextBox>
+            <asp:Label ID="IblGameId" runat="server" Text="GameId" style="position:absolute; top:10px; left:10px;"></asp:Label>
+            <asp:TextBox ID="txtGameId" runat="server" style="position:absolute; top:10px; left:150px;"></asp:TextBox>
+
+            <asp:Label ID="IblGameTitle" runat="server" Text="Game Title" style="position:absolute; top:50px; left:10px;"></asp:Label>
+            <asp:TextBox ID="txtGameTitle" runat="server" style="position:absolute; top:50px; left:150px;"></asp:TextBox>
+
+            <asp:Label ID="IblGameReleaseDate" runat="server" Text="Release Date" style="position:absolute; top:90px; left:10px;"></asp:Label>
+            <asp:TextBox ID="txtGameReleaseDate" runat="server" style="position:absolute; top:90px; left:150px;"></asp:TextBox>
+
+            <asp:Label ID="IblGamePrice" runat="server" Text="Game Price" style="position:absolute; top:130px; left:10px;"></asp:Label>
+            <asp:TextBox ID="txtGamePrice" runat="server" style="position:absolute; top:130px; left:150px;"></asp:TextBox>
+
+            <asp:Label ID="IblStockQty" runat="server" Text="Stock Quantity" style="position:absolute; top:170px; left:10px;"></asp:Label>
+            <asp:TextBox ID="txtStockQty" runat="server" style="position:absolute; top:170px; left:150px;"></asp:TextBox>
+
+            <asp:Label ID="IblGameRating" runat="server" Text="Game Rating" style="position:absolute; top:210px; left:10px;"></asp:Label>
+            <asp:TextBox ID="txtGameRating" runat="server" style="position:absolute; top:210px; left:150px;"></asp:TextBox>
+
+            <asp:CheckBox ID="chkIsDigital" runat="server" Text="Digital" style="position:absolute; top:250px; left:150px;"></asp:CheckBox>
+
+            <asp:Button ID="btnOK" runat="server" Text="OK" OnClick="btnOK_Click" style="position:absolute; top:300px; left:10px;" />
+            <asp:Button ID="btnCancel" runat="server" Text="Cancel" style="position:absolute; top:300px; left:100px;" OnClick="btnCancel_Click" />
+            <asp:Button ID="btnFind" runat="server" Text="Find" OnClick="btnFind_Click" style="position:absolute; top:300px; left:200px;" />
+            <asp:Label ID="lblError" runat="server" style="position:absolute; top:346px; left:10px;"></asp:Label>
         </div>
-        <asp:Label ID="IblGameTitle" runat="server" style="z-index: 1; left: 9px; top: 57px; position: absolute; height: 19px" Text="Game Title " width="113px"></asp:Label>
-        <asp:TextBox ID="TextBox1" runat="server"  style="z-index: 1; top: 55px; position: absolute; left: 165px"></asp:TextBox>
-        <asp:Label ID="IblGameReleaseDate" runat="server" style="z-index: 1; left: 9px; top: 95px; position: absolute; height: 25px; bottom: 548px" Text="Release Date" width="113px"></asp:Label>
-        <asp:TextBox ID="txtGameReleaseDate" runat="server" style="z-index: 1; left: 165px; top: 94px; position: absolute"></asp:TextBox>
-        <asp:TextBox ID="txtGamePrice" runat="server" style="z-index: 1; left: 165px; top: 135px; position: absolute"></asp:TextBox>
-        <asp:Label ID="IblStockQty" runat="server" style="z-index: 1; left: 9px; top: 185px; position: absolute" Text="StockQty" width="113px"></asp:Label>
-        <asp:TextBox ID="txtStockQty" runat="server" style="z-index: 1; left: 165px; top: 185px; position: absolute"></asp:TextBox>
-        <asp:Label ID="IblGameRating" runat="server" style="z-index: 1; left: 9px; top: 231px; position: absolute" Text="Rating" width="113px"></asp:Label>
-        <asp:TextBox ID="txtGameRating" runat="server" style="z-index: 1; left: 165px; top: 230px; position: absolute"></asp:TextBox>
-        <asp:CheckBox ID="chkIsDigitial" runat="server" style="z-index: 1; left: 200px; top: 296px; position: absolute" Text="Digital" />
-        <asp:Label ID="IblError" runat="server" style="z-index: 1; left: 13px; top: 328px; position: absolute"></asp:Label>
-        <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" style="z-index: 1; left: 14px; top: 413px; position: absolute" Text="OK" />
-        <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 105px; top: 413px; position: absolute" Text="Cancel" />
-        <asp:Label ID="IblGamePrice" runat="server" style="z-index: 1; left: 9px; top: 140px; position: absolute" Text="Game Price" width="113px"></asp:Label>
     </form>
 </body>
 </html>

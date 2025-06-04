@@ -177,6 +177,7 @@ namespace ClassLibrary
 
 
         // function for the public validation method
+
         public string Valid(string customerId,
                             string orderdate,
                             string totalamount,
@@ -250,6 +251,22 @@ namespace ClassLibrary
             return Error;
 
 
+
+
+        public string Valid(string OrderId,
+                            string CustomerId,
+                            string Orderdate,
+                            string Totalamount,
+                            string Paymentstatus,
+                            string Shippingaddress,
+                            string StaffId)
+        {
+            return "";
+        }
+        
+        
+
+       
 
 
         }

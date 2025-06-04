@@ -13,7 +13,7 @@ public partial class _1Viewer : System.Web.UI.Page
         //create a new instance of ClsStock
         ClsStock AStock = new ClsStock();
         //get the data from the session object 
-        AStock = (ClsStock)Session["AStock"];
+        AStock = (ClsStock) Session["AStock"];
         //display the Game Id for this entry 
         Response.Write(AStock.GameId);
         Response.Write(AStock.GameTitle);
