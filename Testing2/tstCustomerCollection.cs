@@ -8,6 +8,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Testing2
 {
+
     [TestClass]
     public class tstCustomerCollection
     {
@@ -85,6 +86,7 @@ namespace Testing2
             AllCustomers.CustomerList = TestList;
             //test to see that the two values are the same
             Assert.AreEqual(AllCustomers.Count, TestList.Count);
+
         }
     }
 }
