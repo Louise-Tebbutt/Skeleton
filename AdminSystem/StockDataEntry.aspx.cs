@@ -100,41 +100,49 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
     }
 
-   
+
     protected void btnFind_Click(object sender, EventArgs e)
     {
-        //create an instance of the stock class
+        // Create an instance of the stock class
         ClsStock AStock = new ClsStock();
-        //create a variable to store the primary key
+
+        // Variable to store the primary key
         Int32 GameId;
-        //create a variable to store the result of the find operation
-        Boolean Found = false;
-        //get the primary key entered by the user
+
+        // Get the value entered by the user
         GameId = Convert.ToInt32(txtGameId.Text);
-        //find the record
-        Found = AStock.Find(GameId);
-        //if found
+
+        // Try to find the record
+        Boolean Found = AStock.Find(GameId);
+
         if (Found == true)
         {
-            //display the values of the properties in the form
-            txtGameId.Text = AStock.GameId.ToString();
+            // Display the values of the record
             txtGameTitle.Text = AStock.GameTitle;
             txtGameReleaseDate.Text = AStock.GameReleaseDate.ToString("yyyy-MM-dd");
-            txtGamePrice.Text = AStock.GamePrice.ToString("0.00");
+            txtGamePrice.Text = AStock.GamePrice.ToString();
             txtStockQty.Text = AStock.StockQty.ToString();
             txtGameRating.Text = AStock.GameRating.ToString();
             chkIsDigital.Checked = AStock.IsDigital;
+
+            // Clear any previous error message
+            lblError.Text = "";
         }
         else
         {
-            txtGameTitle.Text = " ";
-            txtGameReleaseDate.Text = " ";
-            txtGamePrice.Text = " ";
-            txtStockQty.Text = " ";
-            txtGameRating.Text = " ";
-   
+            // Show error message if record not found
+            lblError.Text = "Game ID not found. Please try again.";
+
+            // Optionally clear the fields
+            txtGameTitle.Text = "";
+            txtGameReleaseDate.Text = "";
+            txtGamePrice.Text = "";
+            txtStockQty.Text = "";
+            txtGameRating.Text = "";
+            chkIsDigital.Checked = false;
         }
     }
+
 
     void DisplayStock()
     {

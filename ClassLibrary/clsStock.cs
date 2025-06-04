@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -261,6 +262,28 @@ namespace ClassLibrary
             return Error;
         }
 
+        /****** Statistics Grouped by Game Title METHOD ******/
+        public DataTable StatisticsGroupedByGameTitle()
+        {
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
 
+            //execute the stored procedure
+            DB.Execute("sproc_tblStock_Count_GroupByGameTitle");
+            //There should be either zero, one, or more records
+            return DB.DataTable;
+        }
+
+        /****** Statistics Grouped by Release Date METHOD ******/
+        public DataTable StatisticsGroupedByGameReleaseDate()
+        {
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+
+            //execute the stored procedure
+            DB.Execute("sproc_tblStock_Count_GroupByGameReleaseDate");
+            //There should be either zero, one, or more records
+            return DB.DataTable;
+        }
     }
 }

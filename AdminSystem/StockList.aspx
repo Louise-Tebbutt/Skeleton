@@ -26,6 +26,8 @@
             <asp:Button ID="btnApplyFilter" runat="server" OnClick="btnApplyFilter_Click" Text="Apply Filter" />
 &nbsp;
             <asp:Button ID="btnClearFilter" runat="server" OnClick="btnClearFilter_Click" Text="Clear Filter" />
+        &nbsp;&nbsp;
+            <asp:Button ID="BtnStatistics" runat="server" OnClick="BtnStatistics_Click" Text="Statistics Page " />
         </p>
         <p>
             <asp:Label ID="lblError" runat="server" ForeColor="Red"></asp:Label>

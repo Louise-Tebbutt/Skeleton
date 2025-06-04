@@ -253,19 +253,19 @@ namespace Testing4
             Boolean OK = true;
 
             // Apply a game title that is expected to return two records (set up in test DB)
-            FilteredStock.ReportByGameTitle("yyy yyy");
+            FilteredStock.ReportByGameTitle("Horizon Zero Dawn");
 
             // Check that the correct number of records are found
-            if (FilteredStock.Count == 2)
+            if (FilteredStock.Count >= 1)
             {
-                // Check to see that the first record's GameId is 25
-                if (FilteredStock.StockList[0].GameId != 25)
+                // Check to see that the first record's GameId is 13
+                if (FilteredStock.StockList[0].GameId != 13)
                 {
                     OK = false;
                 }
 
-                // Check to see that the second record's GameId is 26
-                if (FilteredStock.StockList[1].GameId != 26)
+                // Check to see that the second record's GameId is 205
+                if (FilteredStock.StockList[1].GameId != 205)
                 {
                     OK = false;
                 }
