@@ -16,6 +16,8 @@
         <asp:Label ID="Label2" runat="server" style="z-index: 1; left: 15px; top: 73px; position: absolute" Text="CustomerId"></asp:Label>
         <p>
             <asp:TextBox ID="txtOrderId" runat="server" style="z-index: 1; left: 142px; top: 40px; position: absolute"></asp:TextBox>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Find" />
         </p>
         <p>
             &nbsp;</p>
@@ -37,12 +39,12 @@
         <asp:TextBox ID="txtShippingAddress" runat="server" style="z-index: 1; left: 147px; top: 213px; position: absolute"></asp:TextBox>
         <asp:Label ID="Label7" runat="server" style="z-index: 1; left: 19px; top: 250px; position: absolute" Text="StaffId"></asp:Label>
         <asp:TextBox ID="txtStaffId" runat="server" style="z-index: 1; left: 146px; top: 254px; position: absolute"></asp:TextBox>
-            <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Find" />
         <p>
             <asp:CheckBox ID="chkActive" runat="server" style="z-index: 1; left: 166px; top: 302px; position: absolute" Text="Active" />
         </p>
         <p>
             <asp:Button ID="Button1" runat="server" style="z-index: 1; left: 57px; top: 334px; position: absolute" Text="OK" OnClick="Button1_Click" />
+            <asp:Label ID="lblError" runat="server" Text="[lblError]"></asp:Label>
         </p>
         <asp:Button ID="Button2" runat="server" style="z-index: 1; left: 163px; top: 335px; position: absolute" Text="Cancel" />
         <p>

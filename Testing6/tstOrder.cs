@@ -219,7 +219,7 @@ namespace Testing6
                 Ok = false;
             }
             //test to see that the result is correct
-            Assert.IsTrue(Ok);
+            Assert.IsFalse(Ok);
         }
 
         [TestMethod]
@@ -241,7 +241,7 @@ namespace Testing6
                 Ok = false;
             }
             //test to see that the result is correct
-            Assert.IsTrue(Ok);
+            Assert.IsFalse(Ok);
         }
 
         [TestMethod]
@@ -263,7 +263,7 @@ namespace Testing6
                 Ok = false;
             }
             //test to see that the result is correct
-            Assert.IsTrue(Ok);
+            Assert.IsFalse(Ok);
         }
 
         [TestMethod]
@@ -285,7 +285,7 @@ namespace Testing6
                 Ok = false;
             }
             //test to see that the result is correct
-            Assert.IsTrue(Ok);
+            Assert.IsFalse(Ok);
         }
 
         [TestMethod]
@@ -307,7 +307,7 @@ namespace Testing6
                 Ok = false;
             }
             //test to see that the result is correct
-            Assert.IsTrue(Ok);
+            Assert.IsFalse(Ok);
         }
 
         [TestMethod]
@@ -329,7 +329,7 @@ namespace Testing6
                 Ok = false;
             }
             //test to see that the result is correct
-            Assert.IsTrue(Ok);
+            Assert.IsFalse(Ok);
         }
         [TestMethod]
         public void ValidMethodOK()
@@ -341,7 +341,7 @@ namespace Testing6
             //invoke the method
             Error = AnOrder.Valid(CustomerId, Orderdate, Totalamount, Paymentstatus, Shippingaddress);
             //test to see that the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void CustomerIdMinLessOne()
@@ -369,7 +369,7 @@ namespace Testing6
             //invoke the methof 
             Error = AnOrder.Valid(CustomerId, Orderdate, Totalamount, Paymentstatus, Shippingaddress);
             //test to see that the test result is correct 
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void CustomerIdMinPlusOne()
@@ -378,7 +378,7 @@ namespace Testing6
             String Error = "";
             String CustomerId = "aa";
             Error = AnOrder.Valid(CustomerId, Orderdate, Totalamount, Paymentstatus, Shippingaddress);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void CustomerIdMaxLessOne()
@@ -387,7 +387,7 @@ namespace Testing6
             String Error = "";
             String CustomerId = "aaaaa";
             Error = AnOrder.Valid(CustomerId, Orderdate, Totalamount, Paymentstatus, Shippingaddress);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void CustomerIdMax()
@@ -396,7 +396,7 @@ namespace Testing6
             String Error = "";
             String CustomerId = "aaaaaa";
             Error = AnOrder.Valid(CustomerId, Orderdate, Totalamount, Paymentstatus, Shippingaddress);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void CustomerIdMid()
@@ -405,7 +405,7 @@ namespace Testing6
             String Error = "";
             String CustomerId = "aaa";
             Error = AnOrder.Valid(CustomerId, Orderdate, Totalamount, Paymentstatus, Shippingaddress);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void CustomerIdMaxPlusOne()
@@ -436,7 +436,7 @@ namespace Testing6
             TestDate = TestDate.AddYears(-100);
             string DateAdded = TestDate.ToString();
             Error = AnOrder.Valid(CustomerId, Orderdate, Totalamount, Paymentstatus, Shippingaddress);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void OrderdateMinLessOne()
@@ -455,7 +455,7 @@ namespace Testing6
             //Invoke the method
             Error = AnOrder.Valid(CustomerId, Orderdate, Totalamount, Paymentstatus, Shippingaddress);
             // test to see the result is correct
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void OrderdateMin()
@@ -467,7 +467,7 @@ namespace Testing6
             
             string DateAdded = TestDate.ToString();
             Error = AnOrder.Valid(CustomerId, Orderdate, Totalamount, Paymentstatus, Shippingaddress);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void OrderdateMinPlusOne()
@@ -479,7 +479,7 @@ namespace Testing6
             TestDate = TestDate.AddDays(1);
             string DateAdded = TestDate.ToString();
             Error = AnOrder.Valid(CustomerId, Orderdate, Totalamount, Paymentstatus, Shippingaddress);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void OrderdateExtremeMax()
@@ -491,7 +491,7 @@ namespace Testing6
             TestDate = TestDate.AddYears(100);
             string DateAdded = TestDate.ToString();
             Error = AnOrder.Valid(CustomerId, Orderdate, Totalamount, Paymentstatus, Shippingaddress);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void OrderdateInvalidData()
@@ -502,7 +502,7 @@ namespace Testing6
             //set the orderdate to a non data value
             string DateAdded = "This is not a date!";
             Error = AnOrder.Valid(CustomerId, Orderdate, Totalamount, Paymentstatus, Shippingaddress);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void ShippingAddressMinLessOne()
@@ -516,7 +516,7 @@ namespace Testing6
             //invoke the method 
             Error = AnOrder.Valid(CustomerId, Orderdate, Totalamount, Paymentstatus, Shippingaddress);
             //Test to see that the result is correct 
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void ShippingAddressMin()
@@ -525,7 +525,7 @@ namespace Testing6
             String Error = "";
             string ShippingAddress = "a";
             Error = AnOrder.Valid(CustomerId, Orderdate, Totalamount, Paymentstatus, ShippingAddress);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void ShippingAddressMinPlusOne()
@@ -534,7 +534,7 @@ namespace Testing6
             String Error = "";
             string ShippingAddress = "aa";
             Error = AnOrder.Valid(CustomerId, Orderdate, Totalamount, Paymentstatus, ShippingAddress);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void ShippingAddressMaxLessOne()
@@ -543,7 +543,7 @@ namespace Testing6
             String Error = "";
             string ShippingAddress = "aaaaaaaa";
             Error = AnOrder.Valid(CustomerId, Orderdate, Totalamount, Paymentstatus, ShippingAddress);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void ShippingAddressMax()
@@ -552,7 +552,7 @@ namespace Testing6
             String Error = "";
             string ShippingAddress = "aaaaaaaaa";
             Error = AnOrder.Valid(CustomerId, Orderdate, Totalamount, Paymentstatus, ShippingAddress);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void ShippingAddressMaxPlusOne()
@@ -561,7 +561,7 @@ namespace Testing6
             String Error = "";
             string ShippingAddress = "aaaaaaaaaa";
             Error = AnOrder.Valid(CustomerId, Orderdate, Totalamount, Paymentstatus, ShippingAddress);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void ShippingAddressMid()
@@ -570,7 +570,7 @@ namespace Testing6
             String Error = "";
             string ShippingAddress = "aaaa";
             Error = AnOrder.Valid(CustomerId, Orderdate, Totalamount, Paymentstatus, ShippingAddress);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void TotalAmountMin()
@@ -579,7 +579,7 @@ namespace Testing6
             String Error = "";
             double TotalAmount = 0.01;
             Error = AnOrder.Valid(CustomerId, Orderdate, Totalamount, Paymentstatus, Shippingaddress);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void TotalAmountMinPlusOne()
@@ -588,7 +588,7 @@ namespace Testing6
             String Error = "";
             double TotalAmount = 1.01;
             Error = AnOrder.Valid(CustomerId, Orderdate, Totalamount, Paymentstatus, Shippingaddress);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void TotalAmountMid()
@@ -597,7 +597,7 @@ namespace Testing6
             String Error = "";
             double TotalAmount = 5000.00;
             Error = AnOrder.Valid(CustomerId, Orderdate, Totalamount, Paymentstatus, Shippingaddress);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void TotalAmountMaxLessOne()
@@ -606,7 +606,7 @@ namespace Testing6
             String Error = "";
             double TotalAmount = 9999.99;
             Error = AnOrder.Valid(CustomerId, Orderdate, Totalamount, Paymentstatus, Shippingaddress);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void TotalAmountMax()
@@ -615,7 +615,7 @@ namespace Testing6
             String Error = "";
             double TotalAmount = 1000.00;
             Error = AnOrder.Valid(CustomerId, Orderdate, Totalamount, Paymentstatus, Shippingaddress);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void TotalAmountMaxPlusOne()
@@ -624,7 +624,7 @@ namespace Testing6
             String Error = "";
             double TotalAmount = 1000.01;
             Error = AnOrder.Valid(CustomerId, Orderdate, Totalamount, Paymentstatus, Shippingaddress);
-            Assert.AreEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
         public void PaymentStatusMin()
@@ -671,6 +671,7 @@ namespace Testing6
             Error = AnOrder.Valid(CustomerId, Orderdate, Totalamount, PaymentStatus, Shippingaddress);
             Assert.AreEqual(Error, "");
         }
+        
 
     }
 

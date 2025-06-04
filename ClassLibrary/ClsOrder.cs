@@ -152,9 +152,12 @@ namespace ClassLibrary
                 mCustomerId = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerId"]); 
                 mOrderDate = Convert.ToDateTime(DB.DataTable.Rows[0]["OrderDate"]);
                 mTotalAmount = Convert.ToDecimal(DB.DataTable.Rows[0]["TotalAmount"]);
+
+                mStaffId = Convert.ToInt32(DB.DataTable.Rows[0]["StaffId"]);
+
                 mShippingAddress = Convert.ToString(DB.DataTable.Rows[0]["ShippingAddress"]);
                 mPaymentStatus = Convert.ToBoolean(DB.DataTable.Rows[0]["PaymentStatus"]);
-                mStaffId = Convert.ToInt32(DB.DataTable.Rows[0]["StaffId "]);
+               
                 //mActive = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
                 return true;
             }
@@ -165,6 +168,11 @@ namespace ClassLibrary
             }
 
 
+        }
+
+        public void Find(ClsOrderCollection orderId)
+        {
+            throw new NotImplementedException();
         }
 
 
