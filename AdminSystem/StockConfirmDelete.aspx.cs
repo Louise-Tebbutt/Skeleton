@@ -25,12 +25,12 @@ public partial class _1_ConfirmDelete : System.Web.UI.Page
         //delete the record
         StockBook.Delete();
         //redirect back to the main page
-        Response.Redirect("StockBookList.aspx");
+        Response.Redirect("StockList.aspx");
     }
 
     protected void btnNo_Click(object sender, EventArgs e)
     {
         //redirect back to the main page 
-        Response.Redirect("StockBookList.aspx");
+        Response.Redirect("StockList.aspx");
     }
 }
