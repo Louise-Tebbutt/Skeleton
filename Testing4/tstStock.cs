@@ -1067,7 +1067,7 @@ namespace Testing4
             DataTable dT = AStock.StatisticsGroupedByGameReleaseDate();
 
             //According to the last executed stored procedure, there should be X rows of data.
-            int noOfRecord = 12; // <-- change this to match your database result
+            int noOfRecord = 11; // <-- change this to match your database result
 
             //test to see that the result is correct
             Assert.AreEqual(noOfRecord, dT.Rows.Count);

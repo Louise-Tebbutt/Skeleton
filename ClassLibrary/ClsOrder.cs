@@ -240,8 +240,8 @@ namespace ClassLibrary
             // Return an error message 
             return Error;
 
-            
 
+        }
 
 
         public string Valid(string OrderId,
@@ -260,7 +260,7 @@ namespace ClassLibrary
        
 
 
-        }
+        
         public DataTable StatisticsGroupedByShippingAddress()
         {
             //create an instance of the data connection 

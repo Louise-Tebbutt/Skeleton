@@ -8,12 +8,12 @@
     <style>
         .centerTitle {
             margin: auto;
-            width: 10%;
+            width: 16%;
             text-align: center;
         }
         .center {
             margin: auto;
-            width: 50%;
+            width: 65%;
         }
 
     </style>
@@ -22,7 +22,7 @@
     <form id="form1" runat="server">
         <div class="centerTitle">
             <p>
-            <asp:Label ID="lblTitle" runat="server" Text="Main Menu" style="font-weight: 700; font-size: x-large"></asp:Label>
+            <asp:Label ID="lblTitle" runat="server" Text="Main Menu" style="font-weight: 700; font-size: x-large" BackColor="#A95658"></asp:Label>
             </p>
             <p>
                 &nbsp;</p>
@@ -30,10 +30,10 @@
 
         <div class="center">
 
-            <asp:Button ID="btnCustomer" runat="server" OnClick="btnCustomer_Click" Text="Customers" Width="120px" style="margin-left: 280px;" />
-            <asp:Button ID="btnOrder" runat="server" OnClick="btnOrder_Click" Text="Orders" Width="120px" style="margin-left: 20px;" />
-            <asp:Button ID="btnStaff" runat="server" OnClick="btnStaff_Click" Text="Staff" Width="120px" style="margin-left: 20px;" />
-            <asp:Button ID="btnStock" runat="server" OnClick="btnStock_Click" Text="Stock" Width="120px" style="margin-left: 20px;" />
+            <asp:Button ID="btnCustomer" runat="server" OnClick="btnCustomer_Click" Text="Customers" Width="120px" style="margin-left: 20px;" BackColor="#66FFFF" ForeColor="Black" />
+            <asp:Button ID="btnOrder" runat="server" OnClick="btnOrder_Click" Text="Orders" Width="120px" style="margin-left: 20px;" BackColor="#66FFFF" />
+            <asp:Button ID="btnStaff" runat="server" OnClick="btnStaff_Click" Text="Staff" Width="120px" style="margin-left: 20px;" BackColor="#66FFFF" />
+            <asp:Button ID="btnStock" runat="server" OnClick="btnStock_Click" Text="Stock" Width="120px" style="margin-left: 20px;" BackColor="#66FFFF" />
 
         </div>
     </form>

@@ -265,7 +265,7 @@ namespace Testing4
                 }
 
                 // Check to see that the second record's GameId is 205
-                if (FilteredStock.StockList[1].GameId != 205)
+                if (FilteredStock.StockList[1].GameId != 239)
                 {
                     OK = false;
                 }

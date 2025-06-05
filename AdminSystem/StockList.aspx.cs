@@ -139,4 +139,10 @@ public partial class _1_List : System.Web.UI.Page
         // redirect to the delete confirmation page
         Response.Redirect("StockStatistics.aspx");
     }
+
+    protected void btnReturnToMM_Click_Click(object sender, EventArgs e)
+    {
+        // Redirce the user to the Stock List page
+        Response.Redirect("TeamMainMenu.aspx");
+    }
 }
