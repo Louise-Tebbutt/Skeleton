@@ -34,7 +34,7 @@ public partial class _1_List : System.Web.UI.Page
         //set the name of the primary key
         lstOrderList.DataValueField = "OrderId";
         //set the data field to display 
-        lstOrderList.DataTextField = "CustomerId";
+        lstOrderList.DataTextField = "ShippingAddress";
         //bind the data to the list
         lstOrderList.DataBind();
     }

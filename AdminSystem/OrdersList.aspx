@@ -10,6 +10,8 @@
     <form runat="server">
         <div>
             <asp:ListBox ID="lstOrderList" runat="server" Height="469px" Width="354px"></asp:ListBox>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Label ID="lblError" runat="server" Text="[lblError]"></asp:Label>
         </div>
         <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" Text="Add" />
         <asp:Button ID="btnEdit" runat="server" OnClick="btnEdit_Click" Text="Edit" />
@@ -19,12 +21,16 @@
         <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Enter Shipping Address
         <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <br />
         <br />
 &nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="btnApplyFilter_Click" runat="server" OnClick="btnApplyFilter_Click_Click" Text="Apply Filter" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="btnClearFilter_Click" runat="server" OnClick="btnClearFilter_Click_Click" Text="Clear Filter" />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="btn_Statistics" runat="server" Text="Statistics Page " />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <br />
         <br />
         <br />
