@@ -166,4 +166,10 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
         Response.Redirect("StockList.aspx");
     }
+
+    protected void btnReturnToMM_Click_Click(object sender, EventArgs e)
+    {
+        // Redirce the user to the Stock List page
+        Response.Redirect("StockList.aspx");
+    }
 }

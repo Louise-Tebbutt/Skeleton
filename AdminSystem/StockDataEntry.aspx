@@ -31,6 +31,7 @@
 
             <asp:Button ID="btnOK" runat="server" Text="OK" OnClick="btnOK_Click" style="position:absolute; top:300px; left:10px;" />
             <asp:Button ID="btnCancel" runat="server" Text="Cancel" style="position:absolute; top:300px; left:100px;" OnClick="btnCancel_Click" />
+            <asp:Button ID="btnReturnToMM_Click" runat="server" OnClick="btnReturnToMM_Click_Click" Text="Return To Main Menu" style="position:absolute; top:300px; left:300px;" />
             <asp:Button ID="btnFind" runat="server" Text="Find" OnClick="btnFind_Click" style="position:absolute; top:300px; left:200px;" />
             <asp:Label ID="lblError" runat="server" style="position:absolute; top:346px; left:10px;"></asp:Label>
         </div>

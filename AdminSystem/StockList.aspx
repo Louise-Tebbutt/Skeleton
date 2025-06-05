@@ -28,6 +28,8 @@
             <asp:Button ID="btnClearFilter" runat="server" OnClick="btnClearFilter_Click" Text="Clear Filter" />
         &nbsp;&nbsp;
             <asp:Button ID="BtnStatistics" runat="server" OnClick="BtnStatistics_Click" Text="Statistics Page " />
+        &nbsp;
+            <asp:Button ID="btnReturnToMM_Click" runat="server" OnClick="btnReturnToMM_Click_Click" Text="Return To Main Menu " />
         </p>
         <p>
             <asp:Label ID="lblError" runat="server" ForeColor="Red"></asp:Label>
