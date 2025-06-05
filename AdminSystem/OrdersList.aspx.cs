@@ -55,7 +55,7 @@ public partial class _1_List : System.Web.UI.Page
             //store the data in the session object
             Session["OrderId"] = OrderId;
             //redirect to the edit page 
-            Response.Redirect("OrderDataEntry.aspx");
+            Response.Redirect("OrdersDataEntry.aspx");
         }
         else
         {
@@ -68,7 +68,7 @@ public partial class _1_List : System.Web.UI.Page
         //store -1 into the session object to indicate this is a new record 
         Session["OrderId"] = -1;
         //redirect to the data entry page 
-        Response.Redirect("OrderDataEntry.aspx");
+        Response.Redirect("OrdersDataEntry.aspx");
     }
 
     protected void btnDelete_Click(object sender, EventArgs e)
@@ -83,7 +83,7 @@ public partial class _1_List : System.Web.UI.Page
             //store the data in the session object
             Session["OrderId"] = OrderId;
             //redirect to the delete page 
-            Response.Redirect("OrderConfirmDelete.aspx");
+            Response.Redirect("OrdersConfirmDelete.aspx");
         }
         else
         {

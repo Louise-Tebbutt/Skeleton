@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Diagnostics.Eventing.Reader;
 using System.Dynamic;
 using System.Linq.Expressions;
@@ -170,10 +171,10 @@ namespace ClassLibrary
 
         }
 
-        public void Find(ClsOrderCollection orderId)
+       public void Find(ClsOrderCollection orderId)
         {
-            throw new NotImplementedException();
-        }
+        // throw new NotImplementedException();
+       }
 
 
         // function for the public validation method
@@ -241,17 +242,36 @@ namespace ClassLibrary
                 }
                 
                 
+                
 
             }
+            
             
            
 
             // Return an error message 
             return Error;
 
+            
 
 
 
+        }
+        public DataTable StatisticsGroupedByShippingAddress()
+        {
+            //create an instance of the data connection 
+            clsDataConnection DB = new clsDataConnection();
+            //execute the stored procedure 
+            DB.Execute("sproc_tblOrder_Count_GroupByShippingAddress");
+            // There should be either zero, one or more records 
+            return DB.DataTable;
+        }
+
+        public DataTable StatisticsGroupedOrderDate()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.Execute("sproc_tblOrder_Count_GroupOrderDate");
+            return DB.DataTable;
         }
 
     }

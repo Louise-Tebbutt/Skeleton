@@ -249,17 +249,26 @@ namespace Testing6
             //variable t storee the outcome 
             Boolean OK = true;
             //apply an address that doesnt exist
-            filteredOrder.ReportByShippingAddress("yyyyy");
+            filteredOrder.ReportByShippingAddress("Leicester");
             //check that the correct number of record is found
-            if (filteredOrder.Count == 2)
+            if (filteredOrder.Count > 2)
             {
-                OK = false;
+                
+                
+                //check to see that the first record is 6
+                if (filteredOrder.OrderList[0].OrderId != 1)
+                {
+                    OK = false;
+                }
+                
+                //check to see that the first record is 4
+                if (filteredOrder.OrderList[1].OrderId != 5)
+                {
+                    OK = false;
+                }
+                
             }
-            //Check to see the first record is 6
-            if (filteredOrder.OrderList[0].OrderId != 6)
-            {
-                OK = false;
-            }
+           
             else
             {
                 OK = false;

@@ -108,10 +108,10 @@ public partial class _1_DataEntry : System.Web.UI.Page
         {
             //display the values of the properties 
             txtCustomerId.Text = AnOrder.CustomerId.ToString();
-            txtOrderDate.Text = AnOrder.OrderDate.ToString("yyyy-MM-dd");
+            txtOrderDate.Text = AnOrder.OrderDate.ToShortDateString();
             txtTotalAmount.Text = AnOrder.TotalAmount.ToString();
             txtPaymentStatus.Text = AnOrder.PaymentStatus.ToString();
-            txtShippingAddress.Text = AnOrder.ShippingAddress;
+            txtShippingAddress.Text = AnOrder.ShippingAddress.ToString();
             txtStaffId.Text = AnOrder.StaffId.ToString();
             chkActive.Checked = AnOrder.Active;
         }
@@ -125,10 +125,10 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //display the data for the record 
         txtOrderId.Text = Order.ThisOrder.OrderId.ToString();
         txtCustomerId.Text = Order.ThisOrder.CustomerId.ToString();
-        txtOrderDate.Text = Order.ThisOrder.OrderDate.ToString();
+        txtOrderDate.Text = Order.ThisOrder.OrderDate.ToShortDateString();
         txtTotalAmount.Text = Order.ThisOrder.TotalAmount.ToString();
         txtPaymentStatus.Text = Order.ThisOrder.PaymentStatus.ToString();
-        txtShippingAddress.Text = Order.ThisOrder.ToString();
+        txtShippingAddress.Text = Order.ThisOrder.ShippingAddress;
         txtStaffId.Text = Order.ThisOrder.StaffId.ToString();
         chkActive.Checked = Order.ThisOrder.Active;
 
