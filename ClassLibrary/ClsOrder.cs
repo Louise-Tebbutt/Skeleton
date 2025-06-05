@@ -206,17 +206,7 @@ namespace ClassLibrary
             }
             //copy the Orderdate value to the datetemp value
             DateTemp = Convert.ToDateTime(orderdate);
-            //check to see if the date is less than today's date 
-            if (DateTemp < DateTime.Now.Date)
-            {
-                Error = Error + "The date cannot be in the past : ";
-            }
-            //check to see if the date is greater than todays date
-            if (DateTemp > DateTime.Now.Date)
-            {
-                //record the error 
-                Error = Error + "The date cannot be in future : ";
-            }
+            
             double AmountTemp;
             {
                 AmountTemp = Convert.ToDouble(totalamount);
@@ -228,10 +218,7 @@ namespace ClassLibrary
                 {
                     Error = Error + "The total amount must not exceed 1000.00 : ";
                 }
-                if(paymentstatus != "0" && paymentstatus != "1")
-                {
-                    Error = Error + "Payment Status must either be '0' or '1' : ";
-                }
+               
                 if(shippingaddress.Length == 0)
                 {
                     Error = Error + "The shipping address must not be blank : ";

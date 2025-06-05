@@ -25,12 +25,12 @@ public partial class _1_ConfirmDelete : System.Web.UI.Page
         //delete the record 
         OrderId.Delete();
         //redirect  back to main page 
-        Response.Redirect("OrderList.aspx");
+        Response.Redirect("OrdersList.aspx");
     }
 
     protected void btn_No_Click(object sender, EventArgs e)
     {
         //redirect back to the main page 
-        Response.Redirect("OrderList.aspx");
+        Response.Redirect("OrdersList.aspx");
     }
 }

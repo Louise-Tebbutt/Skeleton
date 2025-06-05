@@ -59,7 +59,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
             //capture the totalamount
             AnOrder.TotalAmount = Convert.ToDecimal(TotalAmount);
             //capture paymentstatus
-            AnOrder.PaymentStatus =Convert.ToBoolean(PaymentStatus);
+            AnOrder.PaymentStatus = Convert.ToBoolean(PaymentStatus);
             //capture shippingAddress
             AnOrder.ShippingAddress = ShippingAddress;
             //capture actuve box
