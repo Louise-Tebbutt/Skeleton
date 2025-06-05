@@ -96,7 +96,7 @@ public partial class _1_List : System.Web.UI.Page
         //create an instance of the address object
         ClsOrderCollection AnOrder = new ClsOrderCollection();
         //retrive the value of shipping address from the presentation layer 
-        AnOrder.ReportByShippingAddress(btnApplyFilter_Click.Text);
+        AnOrder.ReportByShippingAddress(txtFilter.Text);
         //set the data source to the list of shipping address in the collection
         lstOrderList.DataSource = AnOrder.OrderList;
         //set the name of the primary key
@@ -114,7 +114,7 @@ public partial class _1_List : System.Web.UI.Page
         //set an empty string 
         AnOrder.ReportByShippingAddress("");
         //clear any existing filter to tidy up the interface 
-        TextBox1.Text = "";
+        txtFilter.Text = "";
         //set the data source to the list of shipping address in the collection
         lstOrderList.DataSource = AnOrder.OrderList;
         //set the name of the primary key
@@ -123,5 +123,12 @@ public partial class _1_List : System.Web.UI.Page
         lstOrderList.DataTextField = "ShippingAddress";
         //bind the data to the list 
         lstOrderList.DataBind();
+    }
+
+
+
+    protected void btn_Statistics_Click_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("OrderStatistics.aspx");
     }
 }

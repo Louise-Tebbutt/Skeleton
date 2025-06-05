@@ -19,11 +19,11 @@ public partial class _1_ConfirmDelete : System.Web.UI.Page
     protected void btn_yes_Click(object sender, EventArgs e)
     {
         //create a new instance of the OrderId collectiob class
-        ClsOrderCollection OrderId = new ClsOrderCollection();
+        ClsOrderCollection Order = new ClsOrderCollection();
         //find the record to delete 
-        OrderId.ThisOrder.Find(OrderId);
+        Order.ThisOrder.Find(OrderId);
         //delete the record 
-        OrderId.Delete();
+        Order.Delete();
         //redirect  back to main page 
         Response.Redirect("OrdersList.aspx");
     }

@@ -205,9 +205,19 @@ namespace ClassLibrary
                 //record the error
                 Error = Error + "The Customer Id must be less than 6 characters : ";
             }
-            //copy the Orderdate value to the datetemp value
-            DateTemp = Convert.ToDateTime(orderdate);
+
+            DateTime Date = DateTime.Now;
+            try
+            {
+                //copy the Orderdate value to the datetemp value
+                DateTemp = Convert.ToDateTime(orderdate);
+            }
+            catch
+            {
+                Error = Error + "The date was not a valid date";
+            }
             
+
             double AmountTemp;
             {
                 AmountTemp = Convert.ToDouble(totalamount);
@@ -215,33 +225,33 @@ namespace ClassLibrary
                 {
                     Error = Error + "The total amount will be at least 0.01 : ";
                 }
-                if(AmountTemp > 1000.00)
+                if (AmountTemp > 1000.00)
                 {
                     Error = Error + "The total amount must not exceed 1000.00 : ";
                 }
-               
-                if(shippingaddress.Length == 0)
+
+                if (shippingaddress.Length == 0)
                 {
                     Error = Error + "The shipping address must not be blank : ";
                 }
-                if (shippingaddress.Length > 9)
+                if (shippingaddress.Length > 50)
                 {
-                    Error = Error + "The shipping address must be less than or equal to 9 characters : ";
+                    Error = Error + "The shipping address must be less than or equal to 50 characters : ";
                 }
-                
-                
-                
+
+
+
 
             }
-            
-            
-           
+
+
+
 
             // Return an error message 
             return Error;
 
-            
 
+        }
 
 
         public string Valid(string OrderId,
@@ -260,7 +270,7 @@ namespace ClassLibrary
        
 
 
-        }
+        
         public DataTable StatisticsGroupedByShippingAddress()
         {
             //create an instance of the data connection 

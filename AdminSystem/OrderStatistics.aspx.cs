@@ -21,4 +21,15 @@ public partial class OrderStatistics : System.Web.UI.Page
         GridViewByOrderDate.DataBind();
         GridViewByOrderDate.HeaderRow.Cells[0].Text = "Total";
     }
+
+    protected void btn_homepage_Click(object sender, EventArgs e)
+    {
+        // redirect to the confirmation page
+        Response.Redirect("OrdersList.aspx");
+    }
+
+
+
+
+    
 }
