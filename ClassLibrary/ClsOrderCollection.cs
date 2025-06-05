@@ -148,6 +148,7 @@ namespace ClassLibrary
             {
                 //create a blank address object 
                 ClsOrder AnOrder = new ClsOrder();
+                AnOrder.OrderId = Convert.ToInt32(DB.DataTable.Rows[Index]["OrderId"]);
                 AnOrder.Active = Convert.ToBoolean(DB.DataTable.Rows[Index]["Active"]);
                 AnOrder.CustomerId = Convert.ToInt32(DB.DataTable.Rows[Index]["CustomerId"]);
                 AnOrder.OrderDate = Convert.ToDateTime(DB.DataTable.Rows[Index]["OrderDate"]);
