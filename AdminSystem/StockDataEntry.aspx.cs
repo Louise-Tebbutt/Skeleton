@@ -109,13 +109,28 @@ public partial class _1_DataEntry : System.Web.UI.Page
         // Variable to store the primary key
         Int32 GameId;
 
-        // Get the value entered by the user
-        GameId = Convert.ToInt32(txtGameId.Text);
+        // First, check if the GameId field is empty
+        if (string.IsNullOrWhiteSpace(txtGameId.Text))
+        {
+            lblError.Text = "Game ID is required. Please enter a valid number.";
+            return;
+        }
+
+        // Try converting the GameId to an integer
+        try
+        {
+            GameId = Convert.ToInt32(txtGameId.Text);
+        }
+        catch
+        {
+            lblError.Text = "Game ID must be a number.";
+            return;
+        }
 
         // Try to find the record
         Boolean Found = AStock.Find(GameId);
 
-        if (Found == true)
+        if (Found)
         {
             // Display the values of the record
             txtGameTitle.Text = AStock.GameTitle;
