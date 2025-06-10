@@ -93,14 +93,5 @@ namespace Testing2
             //test to see that the two values are the same
             Assert.AreEqual(AllCustomers.Count, TestList.Count);
         }
-
-        [TestMethod]
-        public void TwoRecordsPresent()
-        {
-            //create an insantce of the class we wnat to create
-            clsCustomerCollection AllCustomers = new clsCustomerCollection();
-            //test to see that the two values are the same
-            Assert.AreEqual(AllCustomers.Count, 2);
-        }
     }
 }

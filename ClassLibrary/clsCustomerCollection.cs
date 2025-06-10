@@ -21,6 +21,7 @@ namespace ClassLibrary
         }
         public clsCustomer ThisCustomer { get; set; }
     
+    //consructor for the class
     public clsCustomerCollection()
         {
             //variable for the index
