@@ -39,8 +39,6 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Error = AnCustomer.Valid(Email, DateOfBirth, FullName, Address, PhoneNumber);
         if (Error == "")
         {
-            //capture the customer number 
-            AnCustomer.CustomerNo = CustomerNo;
             //capture the email
             AnCustomer.Email = Email;
             //capture the date of birth
@@ -53,9 +51,20 @@ public partial class _1_DataEntry : System.Web.UI.Page
             AnCustomer.Address = Address;
             //capture the active stuff
             AnCustomer.Active = Active;
+            //create a new instance of the customer collection
+            clsCustomerCollection CustomerList = new clsCustomerCollection();
+            //set the ThisCustomer property
+            CustomerList.ThisCustomer = AnCustomer;
+            //add the new record
+            CustomerList.Add();
+            //redirect to the list page
+            Response.Redirect("CustomersList.aspx");
         }
-        //navigate to view page
-        Response.Redirect("CustomersViewer.aspx");
+        else
+        {
+            //display the error message
+            lblError.Text = Error;
+        }
     }
 
     protected void btnFind_Click(object sender, EventArgs e)
