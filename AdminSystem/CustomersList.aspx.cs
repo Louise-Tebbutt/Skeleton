@@ -11,13 +11,14 @@ public partial class _1_List : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         //if this is the first time the page is displayed
-        if(IsPostBack == false)
+        if (IsPostBack == false)
         {
             //update the list box
             DisplayCustomer();
         }
+    }
 
-        void DisplayCustomer()
+        public void DisplayCustomer()
         {
             //create an instance of the Customer collection
             clsCustomerCollection Customer = new clsCustomerCollection();
@@ -31,4 +32,3 @@ public partial class _1_List : System.Web.UI.Page
             lstCustomerList.DataBind();
         }
     }
-}
