@@ -6,10 +6,15 @@
 <head runat="server">
     <title></title>
 </head>
-<body>
+<body style="height: 463px; width: 776px">
     <form id="form1" runat="server">
         <div>
         </div>
+        <asp:Label ID="lblCheck" runat="server" Text="Are you sure you want to delete this record?"></asp:Label>
+        <p style="height: 156px">
+            <asp:Button ID="btnYes" runat="server" Text="Yes" />
+            <asp:Button ID="btnNo" runat="server" Text="No" />
+        </p>
     </form>
 </body>
 </html>

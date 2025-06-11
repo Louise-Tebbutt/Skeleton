@@ -117,6 +117,9 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
         }
     }
+
+    
+
     void DisplayCustomer()
     {
         //create an instance of the customer 
