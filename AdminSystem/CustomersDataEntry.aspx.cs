@@ -1,7 +1,7 @@
 ﻿using System;
+using System.Activities.Expressions;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -9,9 +9,21 @@ using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
+    //variable to store the primary key with page level scope
+    Int32 CustomerNo;
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        //get the number of the customer to be processed
+        CustomerNo = Convert.ToInt32(Session["CustomerNo"]);
+        if (IsPostBack == false)
+        {
+            //if this is not a new record
+            if (CustomerNo != -1)
+            {
+                //display the current data for the record
+                DisplayCustomer();
+            }
+        }
     }
 
     protected void btnOK_Click(object sender, EventArgs e)
@@ -48,17 +60,30 @@ public partial class _1_DataEntry : System.Web.UI.Page
             //caapture the address
             AnCustomer.Address = Address;
             //capture the phone number
-            AnCustomer.Address = Address;
+            AnCustomer.PhoneNumber = PhoneNumber;
             //capture the active stuff
             AnCustomer.Active = Active;
             //create a new instance of the customer collection
             clsCustomerCollection CustomerList = new clsCustomerCollection();
-            //set the ThisCustomer property
-            CustomerList.ThisCustomer = AnCustomer;
-            //add the new record
-            CustomerList.Add();
-            //redirect to the list page
-            Response.Redirect("CustomersList.aspx");
+
+            //if this is a new record i.e. CustomerNo = -1 then add all the data
+            if (CustomerNo == -1)
+            {
+                //set the ThisCustomer property
+                CustomerList.ThisCustomer = AnCustomer;
+                //add the new record
+                CustomerList.Add();
+            }
+            //otherwise it must be an update
+            else
+            {
+                //find the record to update
+                CustomerList.ThisCustomer.Find(CustomerNo);
+                //set the ThisCustomer property
+                CustomerList.ThisCustomer = AnCustomer;
+                //update the record
+                CustomerList.Update();
+            }
         }
         else
         {
@@ -91,5 +116,19 @@ public partial class _1_DataEntry : System.Web.UI.Page
             cbActive.Checked = AnCustomer.Active;
 
         }
+    }
+    void DisplayCustomer()
+    {
+        //create an instance of the customer 
+        clsCustomerCollection Customer = new clsCustomerCollection();
+        //find the record to update
+        Customer.ThisCustomer.Find(CustomerNo);
+        //display the data for the record
+        txtEmail.Text = Customer.ThisCustomer.Email.ToString();
+        txtDateOfBirth.Text = Customer.ThisCustomer.DateOfBirth.ToString();
+        txtFullName.Text = Customer.ThisCustomer.FullName.ToString();
+        txtAddress.Text = Customer.ThisCustomer.Address.ToString();
+        txtPhoneNumber.Text = Customer.ThisCustomer.PhoneNumber.ToString();
+        cbActive.Checked = Customer.ThisCustomer.Active;
     }
 }
