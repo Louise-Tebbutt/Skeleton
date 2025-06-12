@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -1018,6 +1019,32 @@ namespace Testing2
             Assert.AreNotEqual(Error, "");
         }
 
-        
+        [TestMethod]
+        public void StatStatisticsGroupedByName()
+        {
+            //create an instnace of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //invoke the method
+            DataTable dT = AnCustomer.StatisiticsGroupedByName();
+            //Acording to the last executred store, there should be 5 rows of data
+            int noOfRecord = 5;
+
+            //test to see that the number of rows is correct
+            Assert.AreEqual(noOfRecord, dT.Rows.Count);
+        }
+
+        [TestMethod]
+        public void StatStatisticsGroupedByDateOfBirth()
+        {
+            //create an instnace of the class we want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //invoke the method
+            DataTable dT = AnCustomer.StatisiticsGroupedByDateOfBirth();
+            //Acording to the last executred store, there should be 6 rows of data
+            int noOfRecord = 6;
+
+            //test to see that the number of rows is correct
+            Assert.AreEqual(noOfRecord, dT.Rows.Count);
+        }
     }
 }
