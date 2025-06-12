@@ -26,6 +26,7 @@
         <asp:TextBox ID="txtName" runat="server" style="z-index: 1; left: 180px; top: 450px; position: absolute"></asp:TextBox>
         <asp:Button ID="btnApplyFilter" runat="server" style="z-index: 1; left: 23px; top: 480px; position: absolute" Text="Apply Filter" OnClick="btnApplyFilter_Click" />
         <asp:Button ID="btnEditFilter" runat="server" style="z-index: 1; left: 180px; top: 480px; position: absolute" Text="Clear Filter" OnClick="btnEditFilter_Click" />
+        <asp:Button ID="btnSatisticsPage" runat="server" style="z-index: 1; left: 350px; top: 480px; position: absolute" Text="Statistics Page" OnClick="btnStatsPage" />
     </form>
 </body>
 </html>
