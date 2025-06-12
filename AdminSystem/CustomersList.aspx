@@ -7,7 +7,7 @@
     <title></title>
     <style type="text/css">
         #form1 {
-            height: 497px;
+            height: 570px;
         }
     </style>
 </head>
@@ -20,8 +20,12 @@
         </div>
         <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" Text="Add" Width="47px" />
         <asp:Button ID="bntEdit" runat="server" OnClick="bntEdit_Click" Text="Edit" Width="70px" />
-        <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 18px; top: 450px; position: absolute" Text="lblError"></asp:Label>
         <asp:Button ID="bntDelete" runat="server" Text="Delete" OnClick="bntDelete_Click" />
+        <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 23px; top: 540px; position: absolute" Text="lblError"></asp:Label>
+        <asp:Label ID="lblEnterName" runat="server" style="z-index: 1; left: 23px; top: 450px; position: absolute" Text="Enter a Name"></asp:Label>
+        <asp:TextBox ID="txtName" runat="server" style="z-index: 1; left: 180px; top: 450px; position: absolute"></asp:TextBox>
+        <asp:Button ID="btnApplyFilter" runat="server" style="z-index: 1; left: 23px; top: 480px; position: absolute" Text="Apply Filter" OnClick="btnApplyFilter_Click" />
+        <asp:Button ID="btnEditFilter" runat="server" style="z-index: 1; left: 180px; top: 480px; position: absolute" Text="Clear Filter" OnClick="btnEditFilter_Click" />
     </form>
 </body>
 </html>

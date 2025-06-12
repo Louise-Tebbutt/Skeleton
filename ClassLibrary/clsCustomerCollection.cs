@@ -31,34 +31,13 @@ namespace ClassLibrary
     //consructor for the class
     public clsCustomerCollection()
         {
-            //variable for the index
-            Int32 Index = 0;
-            //variable to store the record count
-            Int32 RecordCount = 0;
             //object for the data connect
             clsDataConnection DB = new clsDataConnection();
             //execute the stored procedure
             DB.Execute("sproc_tblCustomer_SelectAll");
-            //get the count of records
-            RecordCount = DB.Count;
-            //while theer are records to process
-            while (Index < RecordCount)
-            {
-                //create a blank address
-                clsCustomer AnCustomer = new clsCustomer();
-                //read in the fields for the correcnt records
-                AnCustomer.CustomerNo = Convert.ToInt32(DB.DataTable.Rows[Index]["CustomerNo"]);
-                AnCustomer.DateOfBirth = Convert.ToDateTime(DB.DataTable.Rows[Index]["DateOfBirth"]);
-                AnCustomer.FullName = Convert.ToString(DB.DataTable.Rows[Index]["FullName"]);
-                AnCustomer.Email = Convert.ToString(DB.DataTable.Rows[Index]["Email"]);
-                AnCustomer.Address = Convert.ToString(DB.DataTable.Rows[Index]["Address"]);
-                AnCustomer.PhoneNumber = Convert.ToString(DB.DataTable.Rows[Index]["PhoneNumber"]);
-                AnCustomer.Active = Convert.ToBoolean(DB.DataTable.Rows[Index]["Active"]);
-                //add the record to the private data member
-                mCustomerList.Add(AnCustomer);
-                //points at the next record
-                Index++;
-            }
+            //populate the array list with the data table
+            PopulateArray(DB);
+
         }
 
         public int Add()
@@ -105,6 +84,50 @@ namespace ClassLibrary
             DB.AddParameter("@CustomerNo", mThisCustomer.CustomerNo);
             //execute the stored procedure
             DB.Execute("sproc_tblCustomer_Delete");
+        }
+
+        public void ReportByCustomerName(string FullName)
+        {
+            //filters the records based on a full name
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //send the full name parameter to the database
+            DB.AddParameter("@FullName", FullName);
+            //execute the stored procedure
+            DB.Execute("sproc_tblCustomer_FilteredByFullName");
+            //populate the array list with the data table
+            PopulateArray(DB);
+        }
+
+        public void PopulateArray(clsDataConnection DB)
+        {
+            //populate the customer list from the database
+            //variable for the index
+            Int32 Index = 0;
+            //variable to store the record count
+            Int32 RecordCount = 0;
+            //get the count of records
+            RecordCount = DB.Count;
+            //clear the private array list
+            mCustomerList = new List<clsCustomer>();
+            //while there are records to process
+            while (Index < RecordCount)
+            {
+                //create a blank address
+                clsCustomer AnCustomer = new clsCustomer();
+                //read in the fields for the current record
+                AnCustomer.CustomerNo = Convert.ToInt32(DB.DataTable.Rows[Index]["CustomerNo"]);
+                AnCustomer.DateOfBirth = Convert.ToDateTime(DB.DataTable.Rows[Index]["DateOfBirth"]);
+                AnCustomer.FullName = Convert.ToString(DB.DataTable.Rows[Index]["FullName"]);
+                AnCustomer.Email = Convert.ToString(DB.DataTable.Rows[Index]["Email"]);
+                AnCustomer.Address = Convert.ToString(DB.DataTable.Rows[Index]["Address"]);
+                AnCustomer.PhoneNumber = Convert.ToString(DB.DataTable.Rows[Index]["PhoneNumber"]);
+                AnCustomer.Active = Convert.ToBoolean(DB.DataTable.Rows[Index]["Active"]);
+                //add the record to the private data member
+                mCustomerList.Add(AnCustomer);
+                //points at the next record
+                Index++;
+            }
         }
     }
 }
